@@ -8,7 +8,7 @@ export const ApiKeyManagementCreate = () => {
   const keyType = getApiKeyTypeFromPathname(pathname)
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <ApiKeyCreateForm keyType={keyType} />
     </RouteFocusModal>
   )

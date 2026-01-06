@@ -48,33 +48,34 @@ export const CampaignListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
-        <Heading level="h2">{t("campaigns.domain")}</Heading>
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
+        <Heading level="h2" className="text-4xl font-semibold">{t("campaigns.domain")}</Heading>
         <Link to="/campaigns/create">
           <Button size="small" variant="secondary">
             {t("actions.create")}
           </Button>
         </Link>
       </div>
-
-      <_DataTable
-        table={table}
-        columns={columns}
-        count={count}
-        pageSize={PAGE_SIZE}
-        pagination
-        search
-        navigateTo={(row) => row.id}
-        isLoading={isLoading}
-        queryObject={raw}
-        orderBy={[
-          { key: "name", label: t("fields.name") },
-          { key: "created_at", label: t("fields.createdAt") },
-          { key: "updated_at", label: t("fields.updatedAt") },
-        ]}
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          count={count}
+          pageSize={PAGE_SIZE}
+          pagination
+          search
+          navigateTo={(row) => row.id}
+          isLoading={isLoading}
+          queryObject={raw}
+          orderBy={[
+            { key: "name", label: t("fields.name") },
+            { key: "created_at", label: t("fields.createdAt") },
+            { key: "updated_at", label: t("fields.updatedAt") },
+          ]}
+        />
+      </Container>
+    </div>
   )
 }
 

@@ -43,9 +43,9 @@ export const Requests = () => {
       <Container className="p-0">
         <div className="flex items-center justify-between px-6 py-4">
           <div>
-            <Heading>Requests</Heading>
+            <Heading>Richieste</Heading>
             <Text className="text-ui-fg-subtle" size="small">
-              Check the status of your requests and add new ones
+              Controlla lo stato delle tue richieste e aggiungine di nuove
             </Text>
           </div>
         </div>
@@ -54,7 +54,7 @@ export const Requests = () => {
             <Button variant="secondary" className="w-full justify-between py-4">
               <div className="flex gap-4 items-center">
                 <Badge>{collectionRequestCount}</Badge>
-                Collections requests
+                Richieste collezioni
               </div>
               <TriangleRightMini color="grey" />
             </Button>
@@ -63,7 +63,7 @@ export const Requests = () => {
             <Button variant="secondary" className="w-full justify-between py-4">
               <div className="flex gap-4 items-center">
                 <Badge>{categoryRequestCount}</Badge>
-                Categories requests
+                Richieste categorie
               </div>
               <TriangleRightMini color="grey" />
             </Button>
@@ -72,7 +72,7 @@ export const Requests = () => {
             <Button variant="secondary" className="w-full justify-between py-4">
               <div className="flex gap-4 items-center">
                 <Badge>{reviewRequestCount}</Badge>
-                Reviews requests
+                Richieste recensioni
               </div>
               <TriangleRightMini color="grey" />
             </Button>
@@ -81,7 +81,7 @@ export const Requests = () => {
             <Button variant="secondary" className="w-full justify-between py-4">
               <div className="flex gap-4 items-center">
                 <Badge>{ordersRequestsCount}</Badge>
-                Order return requests
+                Richieste resi ordini
               </div>
               <TriangleRightMini color="grey" />
             </Button>

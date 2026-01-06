@@ -8,9 +8,10 @@ import { StackedModalProvider } from "../stacked-modal-provider"
 
 type RouteFocusModalProps = PropsWithChildren<{
   prev?: string
+  contentClassName?: string
 }>
 
-const Root = ({ prev = "..", children }: RouteFocusModalProps) => {
+const Root = ({ prev = "..", children, contentClassName }: RouteFocusModalProps) => {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [stackedModalOpen, onStackedModalOpen] = useState(false)
@@ -42,7 +43,7 @@ const Root = ({ prev = "..", children }: RouteFocusModalProps) => {
     <FocusModal open={open} onOpenChange={handleOpenChange}>
       <RouteModalProvider prev={prev}>
         <StackedModalProvider onOpenChange={onStackedModalOpen}>
-          <Content stackedModalOpen={stackedModalOpen}>{children}</Content>
+          <Content stackedModalOpen={stackedModalOpen} className={contentClassName}>{children}</Content>
         </StackedModalProvider>
       </RouteModalProvider>
     </FocusModal>
@@ -51,9 +52,10 @@ const Root = ({ prev = "..", children }: RouteFocusModalProps) => {
 
 type ContentProps = PropsWithChildren<{
   stackedModalOpen: boolean
+  className?: string
 }>
 
-const Content = ({ stackedModalOpen, children }: ContentProps) => {
+const Content = ({ stackedModalOpen, children, className }: ContentProps) => {
   const { __internal } = useRouteModal()
 
   const shouldPreventClose = !__internal.closeOnEscape
@@ -69,7 +71,7 @@ const Content = ({ stackedModalOpen, children }: ContentProps) => {
       }
       className={clx({
         "!bg-ui-bg-disabled !inset-x-5 !inset-y-3": stackedModalOpen,
-      })}
+      }, className)}
     >
       {children}
     </FocusModal.Content>

@@ -17,11 +17,24 @@ const getStatusColor: any = (status: string) => {
   }
 }
 
+const getStatusLabel = (status: string) => {
+  switch (status) {
+    case "pending":
+      return "In attesa"
+    case "connected":
+      return "Connesso"
+    case "not connected":
+      return "Non connesso"
+    default:
+      return status
+  }
+}
+
 export const Status = ({ status }: StatusCellProps) => {
   return (
     <div className="flex h-full w-full items-center overflow-hidden">
-      <span className="truncate capitalize">
-        <StatusCell_ color={getStatusColor(status)}>{status}</StatusCell_>
+      <span className="truncate">
+        <StatusCell_ color={getStatusColor(status)}>{getStatusLabel(status)}</StatusCell_>
       </span>
     </div>
   )

@@ -54,27 +54,29 @@ export const OrderDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        after: getWidgets("order.details.after"),
-        before: getWidgets("order.details.before"),
-        sideAfter: getWidgets("order.details.side.after"),
-        sideBefore: getWidgets("order.details.side.before"),
-      }}
-      data={order}
-      hasOutlet
-    >
-      <TwoColumnPage.Main>
-        <OrderGeneralSection order={order} />
-        <OrderSummarySection order={order} />
-        <OrderPaymentSection order={order} />
-        <OrderFulfillmentSection order={order} />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        <OrderCustomerSection order={order} />
-        {/* TODO: Uncomment when API returns data about payment cancel/capture/refund dates + when section is adapted to the changes */}
-        {/* <OrderActivitySection order={order} /> */}
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          after: getWidgets("order.details.after"),
+          before: getWidgets("order.details.before"),
+          sideAfter: getWidgets("order.details.side.after"),
+          sideBefore: getWidgets("order.details.side.before"),
+        }}
+        data={order}
+        hasOutlet
+      >
+        <TwoColumnPage.Main>
+          <OrderGeneralSection order={order} />
+          <OrderSummarySection order={order} />
+          <OrderPaymentSection order={order} />
+          <OrderFulfillmentSection order={order} />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          <OrderCustomerSection order={order} />
+          {/* TODO: Uncomment when API returns data about payment cancel/capture/refund dates + when section is adapted to the changes */}
+          {/* <OrderActivitySection order={order} /> */}
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

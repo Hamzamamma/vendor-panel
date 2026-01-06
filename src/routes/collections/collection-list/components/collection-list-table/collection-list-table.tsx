@@ -46,10 +46,10 @@ export const CollectionListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
-          <Heading>{t("collections.domain")}</Heading>
+          <Heading className="text-4xl font-semibold">{t("collections.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
             {t("collections.subtitle")}
           </Text>
@@ -60,30 +60,32 @@ export const CollectionListTable = () => {
           </Button>
         </Link>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        pageSize={PAGE_SIZE}
-        count={count}
-        filters={filters}
-        orderBy={[
-          { key: "title", label: t("fields.title") },
-          { key: "handle", label: t("fields.handle") },
-          {
-            key: "created_at",
-            label: t("fields.createdAt"),
-          },
-          {
-            key: "updated_at",
-            label: t("fields.updatedAt"),
-          },
-        ]}
-        search
-        navigateTo={(row) => `/collections/${row.original.id}`}
-        queryObject={raw}
-        isLoading={isLoading}
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          pageSize={PAGE_SIZE}
+          count={count}
+          filters={filters}
+          orderBy={[
+            { key: "title", label: t("fields.title") },
+            { key: "handle", label: t("fields.handle") },
+            {
+              key: "created_at",
+              label: t("fields.createdAt"),
+            },
+            {
+              key: "updated_at",
+              label: t("fields.updatedAt"),
+            },
+          ]}
+          search
+          navigateTo={(row) => `/collections/${row.original.id}`}
+          queryObject={raw}
+          isLoading={isLoading}
+        />
+      </Container>
+    </div>
   )
 }
 

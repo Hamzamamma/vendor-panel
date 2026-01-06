@@ -3,7 +3,7 @@ import { CreatePromotionForm } from "./components/create-promotion-form/create-p
 
 export const PromotionCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreatePromotionForm />
     </RouteFocusModal>
   )

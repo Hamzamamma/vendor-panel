@@ -44,7 +44,7 @@ export const InventoryStock = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <RouteFocusModal.Title asChild>
         <span className="sr-only">{t("inventory.stock.title")}</span>
       </RouteFocusModal.Title>

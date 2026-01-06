@@ -3,7 +3,7 @@ import { CreateCustomerForm } from "./components/create-customer-form"
 
 export const CustomerCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreateCustomerForm />
     </RouteFocusModal>
   )

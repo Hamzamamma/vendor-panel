@@ -18,7 +18,7 @@ export const CategoryProducts = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && (
         <EditCategoryProductsForm
           categoryId={product_category.id}

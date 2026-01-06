@@ -20,7 +20,7 @@ export const LocationSalesChannels = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && <LocationEditSalesChannelsForm location={stock_location} />}
     </RouteFocusModal>
   )

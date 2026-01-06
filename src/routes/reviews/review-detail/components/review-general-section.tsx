@@ -16,7 +16,7 @@ export const ReviewGeneralSection = ({
   return (
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
-        <Heading>Review</Heading>
+        <Heading>Recensione</Heading>
         <div className="flex items-center gap-4">
           <Badge>
             <StatusCell status={review.seller_note} />
@@ -24,7 +24,7 @@ export const ReviewGeneralSection = ({
           {isRequested ? (
             <Badge className="flex items-center gap-2">
               <ExclamationCircle />
-              Requested to remove
+              Richiesta rimozione
             </Badge>
           ) : (
             <ActionMenu
@@ -32,7 +32,7 @@ export const ReviewGeneralSection = ({
                 {
                   actions: [
                     {
-                      label: "Report review",
+                      label: "Segnala recensione",
                       to: `/reviews/${review.id}/report`,
                       icon: <ExclamationCircle />,
                       disabled: isRequested,
@@ -45,29 +45,29 @@ export const ReviewGeneralSection = ({
         </div>
       </div>
       <div className="px-6 py-4 grid grid-cols-2">
-        <div>Stars</div>
+        <div>Stelle</div>
         <div>
           <StarsRating rate={review.rating} />
         </div>
       </div>
       <div className="px-6 py-4 grid grid-cols-2">
-        <div>Review</div>
+        <div>Recensione</div>
         <div className="whitespace-pre-line break-words">
           {review.customer_note}
         </div>
       </div>
       <div className="px-6 py-4 grid grid-cols-2">
-        <div>Reply</div>
+        <div>Risposta</div>
         <div>{review.seller_note || "-"}</div>
       </div>
       <div className="px-6 py-4 grid grid-cols-2">
-        <div>Added</div>
+        <div>Aggiunta il</div>
         <div>{format(review.created_at, "dd MMM yyyy")}</div>
       </div>
       <div className="px-6 py-4 flex justify-end">
         <Link to={`/reviews/${review.id}/reply`}>
           <Button className="px-6">
-            {review.seller_note ? "Edit Reply" : "Reply"}
+            {review.seller_note ? "Modifica Risposta" : "Rispondi"}
           </Button>
         </Link>
       </div>

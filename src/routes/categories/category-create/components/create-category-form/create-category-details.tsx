@@ -17,9 +17,9 @@ export const CreateCategoryDetails = ({ form }: CreateCategoryDetailsProps) => {
     <div className="flex flex-col items-center p-16">
       <div className="flex w-full max-w-[720px] flex-col gap-y-8">
         <div>
-          <Heading>Request Category</Heading>
+          <Heading>Richiedi Categoria</Heading>
           <Text size="small" className="text-ui-fg-subtle">
-            Request for a new category to organize your products.
+            Richiedi una nuova categoria per organizzare i tuoi prodotti.
           </Text>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

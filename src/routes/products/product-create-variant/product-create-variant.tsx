@@ -13,7 +13,7 @@ export const ProductCreateVariant = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {!isLoading && product && <CreateProductVariantForm product={product} />}
     </RouteFocusModal>
   )

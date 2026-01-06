@@ -52,45 +52,47 @@ export const CustomerListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
-        <Heading>{t("customers.domain")}</Heading>
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
+        <Heading className="text-4xl font-semibold">{t("customers.domain")}</Heading>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        pageSize={PAGE_SIZE}
-        count={count}
-        filters={filters}
-        orderBy={[
-          { key: "email", label: t("fields.email") },
-          {
-            key: "first_name",
-            label: t("fields.firstName"),
-          },
-          { key: "last_name", label: t("fields.lastName") },
-          {
-            key: "has_account",
-            label: t("customers.hasAccount"),
-          },
-          {
-            key: "created_at",
-            label: t("fields.createdAt"),
-          },
-          {
-            key: "updated_at",
-            label: t("fields.updatedAt"),
-          },
-        ]}
-        isLoading={isLoading}
-        navigateTo={(row) => row.original.id}
-        queryObject={raw}
-        search
-        noRecords={{
-          message: t("customers.list.noRecordsMessage"),
-        }}
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          pageSize={PAGE_SIZE}
+          count={count}
+          filters={filters}
+          orderBy={[
+            { key: "email", label: t("fields.email") },
+            {
+              key: "first_name",
+              label: t("fields.firstName"),
+            },
+            { key: "last_name", label: t("fields.lastName") },
+            {
+              key: "has_account",
+              label: t("customers.hasAccount"),
+            },
+            {
+              key: "created_at",
+              label: t("fields.createdAt"),
+            },
+            {
+              key: "updated_at",
+              label: t("fields.updatedAt"),
+            },
+          ]}
+          isLoading={isLoading}
+          navigateTo={(row) => row.original.id}
+          queryObject={raw}
+          search
+          noRecords={{
+            message: t("customers.list.noRecordsMessage"),
+          }}
+        />
+      </Container>
+    </div>
   )
 }
 

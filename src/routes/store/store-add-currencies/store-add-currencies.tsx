@@ -33,7 +33,7 @@ export const StoreAddCurrencies = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && (
         <AddCurrenciesForm store={store} pricePreferences={pricePreferences} />
       )}

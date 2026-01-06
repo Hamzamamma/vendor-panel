@@ -29,7 +29,7 @@ export const LocationServiceZoneManageAreas = () => {
   }
 
   return (
-    <RouteFocusModal prev={`/settings/locations/${location_id}`}>
+    <RouteFocusModal prev={`/settings/locations/${location_id}`} contentClassName="!max-w-[850px] !mx-auto">
       {zone && (
         <EditServiceZoneAreasForm
           zone={zone}

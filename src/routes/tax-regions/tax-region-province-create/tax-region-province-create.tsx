@@ -15,7 +15,7 @@ export const TaxProvinceCreate = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && <TaxRegionProvinceCreateForm parent={tax_region} />}
     </RouteFocusModal>
   )

@@ -3,7 +3,7 @@ import { CreateLocationForm } from "./components/create-location-form"
 
 export const LocationCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreateLocationForm />
     </RouteFocusModal>
   )

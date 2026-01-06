@@ -106,35 +106,50 @@ export const fetchQuery = async (
     }
     return acc;
   }, '');
-  const response = await fetch(`${backendUrl}${url}${params && `?${params}`}`, {
-    method: method,
-    headers: {
-      authorization: `Bearer ${bearer}`,
-      'Content-Type': 'application/json',
-      'x-publishable-api-key': publishableApiKey,
-      ...headers
-    },
-    body: body ? JSON.stringify(body) : null
-  });
+  try {
+    const response = await fetch(`${backendUrl}${url}${params && `?${params}`}`, {
+      method: method,
+      headers: {
+        authorization: `Bearer ${bearer}`,
+        'Content-Type': 'application/json',
+        'x-publishable-api-key': publishableApiKey,
+        ...headers
+      },
+      body: body ? JSON.stringify(body) : null
+    });
 
-  if (!response.ok) {
-    const errorData = await response.json();
-
-    if (response.status === 401) {
-      if (isTokenExpired(token)) {
-        localStorage.removeItem('medusa_auth_token');
-        window.location.href = '/login?reason=Unauthorized';
-        return;
+    if (!response.ok) {
+      let errorData;
+      try {
+        errorData = await response.json();
+      } catch {
+        // If response is not JSON, create a generic error
+        errorData = { message: `Server error: ${response.status} ${response.statusText}` };
       }
 
-      throw {
-        type: 'NO_PERMISSION',
-        message: errorData.message || 'Unauthorized'
-      };
+      if (response.status === 401) {
+        if (isTokenExpired(token)) {
+          localStorage.removeItem('medusa_auth_token');
+          window.location.href = '/login?reason=Unauthorized';
+          return;
+        }
+
+        throw {
+          type: 'NO_PERMISSION',
+          message: errorData.message || 'Unauthorized'
+        };
+      }
+
+      throw new Error(errorData.message || 'Server error');
     }
 
-    throw new Error(errorData.message || 'Server error');
+    return response.json();
+  } catch (error: any) {
+    // Handle network errors (Failed to fetch, CORS, etc.)
+    if (error instanceof TypeError && error.message.includes('fetch')) {
+      throw new Error(`Impossibile connettersi al server. Verifica che il backend sia in esecuzione su ${backendUrl}`);
+    }
+    // Re-throw other errors
+    throw error;
   }
-
-  return response.json();
 };

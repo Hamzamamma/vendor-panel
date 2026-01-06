@@ -19,9 +19,9 @@ export const RequestReviewsList = () => {
       <Container className="divided-y p-0">
         <div className="flex items-center justify-between px-6 py-4">
           <div>
-            <Heading>Reviews Removal Requests</Heading>
+            <Heading>Richieste Rimozione Recensioni</Heading>
             <Text className="text-ui-fg-subtle" size="small">
-              Your requests to cancel a review
+              Le tue richieste per rimuovere una recensione
             </Text>
           </div>
         </div>

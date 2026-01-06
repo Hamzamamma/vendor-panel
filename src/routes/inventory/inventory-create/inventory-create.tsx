@@ -14,7 +14,7 @@ export function InventoryCreate() {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && <InventoryCreateForm locations={stock_locations} />}
     </RouteFocusModal>
   )

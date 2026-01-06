@@ -7,7 +7,7 @@ export const PriceListCreate = () => {
     usePriceListCurrencyData()
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {isReady && (
         <PriceListCreateForm
           regions={regions}

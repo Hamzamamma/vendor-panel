@@ -57,38 +57,40 @@ export const InventoryListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
-          <Heading>{t("inventory.domain")}</Heading>
+          <Heading className="text-4xl font-semibold">{t("inventory.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
             {t("inventory.subtitle")}
           </Text>
         </div>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        pageSize={PAGE_SIZE}
-        count={count}
-        isLoading={isLoading}
-        pagination
-        queryObject={raw}
-        navigateTo={(row) => `${row.id}`}
-        commands={[
-          {
-            action: async (selection) => {
-              navigate(
-                `stock?${INVENTORY_ITEM_IDS_KEY}=${Object.keys(selection).join(
-                  ","
-                )}`
-              )
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          pageSize={PAGE_SIZE}
+          count={count}
+          isLoading={isLoading}
+          pagination
+          queryObject={raw}
+          navigateTo={(row) => `${row.id}`}
+          commands={[
+            {
+              action: async (selection) => {
+                navigate(
+                  `stock?${INVENTORY_ITEM_IDS_KEY}=${Object.keys(selection).join(
+                    ","
+                  )}`
+                )
+              },
+              label: t("inventory.stock.action"),
+              shortcut: "i",
             },
-            label: t("inventory.stock.action"),
-            shortcut: "i",
-          },
-        ]}
-      />
-    </Container>
+          ]}
+        />
+      </Container>
+    </div>
   )
 }

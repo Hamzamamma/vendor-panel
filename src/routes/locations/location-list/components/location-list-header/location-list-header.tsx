@@ -8,7 +8,7 @@ export const LocationListHeader = () => {
   return (
     <Container className="flex h-fit items-center justify-between gap-x-4 px-6 py-4">
       <div>
-        <Heading>{t("stockLocations.domain")}</Heading>
+        <Heading className="text-4xl font-semibold">{t("stockLocations.domain")}</Heading>
         <Text className="text-ui-fg-subtle txt-small">
           {t("stockLocations.list.description")}
         </Text>

@@ -14,7 +14,7 @@ export const ProductPrices = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {!isLoading && product && (
         <PricingEdit product={product} variantId={variant_id} />
       )}

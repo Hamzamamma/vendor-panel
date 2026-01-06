@@ -30,27 +30,27 @@ export const Connected = ({
   return status === "connected" ? (
     <div className="flex items-center justify-center text-center my-32 flex-col">
       <Heading level="h2" className="mt-4">
-        Your Stripe Account is ready
+        Il tuo account Stripe è pronto
       </Heading>
       <Link to="https://dashboard.stripe.com/payments" target="_blank">
-        <Button className="mt-4">Go to Stripe</Button>
+        <Button className="mt-4">Vai a Stripe</Button>
       </Link>
     </div>
   ) : (
     <div className="flex items-center justify-center text-center my-32 flex-col">
       <ExclamationCircle />
       <Heading level="h2" className="mt-4">
-        Not onboarded
+        Configurazione incompleta
       </Heading>
       <Text className="text-ui-fg-subtle" size="small">
-        Go to Stripe Onboarding page
+        Vai alla pagina di configurazione Stripe
       </Text>
       <Button
         isLoading={isPending}
         className="mt-4"
         onClick={() => handleOnboarding()}
       >
-        Stripe Onboarding
+        Configura Stripe
       </Button>
     </div>
   )

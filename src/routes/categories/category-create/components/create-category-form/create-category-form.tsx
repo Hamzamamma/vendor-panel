@@ -72,7 +72,7 @@ export const CreateCategoryForm = ({
       },
       {
         onSuccess: () => {
-          toast.success("Request has been sent")
+          toast.success("Richiesta inviata")
 
           handleSuccess("/requests")
         },
@@ -126,7 +126,7 @@ export const CreateCategoryForm = ({
                 type="submit"
                 isLoading={isPending}
               >
-                Request
+                Richiedi
               </Button>
             </div>
           </RouteFocusModal.Footer>

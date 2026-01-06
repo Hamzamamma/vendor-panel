@@ -39,7 +39,7 @@ export const EditStoreCompanyForm = ({ seller }: { seller: StoreVendor }) => {
       },
       {
         onSuccess: () => {
-          toast.success("Store updated")
+          toast.success("Negozio aggiornato")
           handleSuccess()
         },
         onError: (error) => {
@@ -59,7 +59,7 @@ export const EditStoreCompanyForm = ({ seller }: { seller: StoreVendor }) => {
               control={form.control}
               render={({ field }) => (
                 <Form.Item>
-                  <Form.Label>Address</Form.Label>
+                  <Form.Label>Indirizzo</Form.Label>
                   <Form.Control>
                     <Input {...field} />
                   </Form.Control>
@@ -72,7 +72,7 @@ export const EditStoreCompanyForm = ({ seller }: { seller: StoreVendor }) => {
               control={form.control}
               render={({ field }) => (
                 <Form.Item>
-                  <Form.Label>Postal Code</Form.Label>
+                  <Form.Label>CAP</Form.Label>
                   <Form.Control>
                     <Input {...field} />
                   </Form.Control>
@@ -85,7 +85,7 @@ export const EditStoreCompanyForm = ({ seller }: { seller: StoreVendor }) => {
               control={form.control}
               render={({ field }) => (
                 <Form.Item>
-                  <Form.Label>City</Form.Label>
+                  <Form.Label>Città</Form.Label>
                   <Form.Control>
                     <Input {...field} />
                   </Form.Control>
@@ -98,7 +98,7 @@ export const EditStoreCompanyForm = ({ seller }: { seller: StoreVendor }) => {
               control={form.control}
               render={({ field }) => (
                 <Form.Item>
-                  <Form.Label>Country</Form.Label>
+                  <Form.Label>Paese</Form.Label>
                   <Form.Control>
                     <Input {...field} />
                   </Form.Control>
@@ -111,7 +111,7 @@ export const EditStoreCompanyForm = ({ seller }: { seller: StoreVendor }) => {
               control={form.control}
               render={({ field }) => (
                 <Form.Item>
-                  <Form.Label>Tax ID</Form.Label>
+                  <Form.Label>Partita IVA</Form.Label>
                   <Form.Control>
                     <Input {...field} />
                   </Form.Control>
@@ -124,11 +124,11 @@ export const EditStoreCompanyForm = ({ seller }: { seller: StoreVendor }) => {
         <RouteDrawer.Footer>
           <RouteDrawer.Close asChild>
             <Button size="small" variant="secondary">
-              Cancel
+              Annulla
             </Button>
           </RouteDrawer.Close>
           <Button type="submit" size="small" isLoading={isPending}>
-            Save
+            Salva
           </Button>
         </RouteDrawer.Footer>
       </KeyboundForm>

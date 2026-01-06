@@ -74,8 +74,8 @@ const Root = <TData,>({
       {before.map((Component, i) => {
         return <Component {...widgetProps} key={i} />
       })}
-      <div className="flex w-full flex-col items-start gap-x-4 gap-y-3 xl:grid xl:grid-cols-[minmax(0,_1fr)_440px]">
-        <div className="flex w-full min-w-0 flex-col gap-y-3">
+      <div className="flex w-full flex-col items-stretch gap-x-4 gap-y-3 xl:grid xl:grid-cols-[minmax(0,_1fr)_440px] xl:items-stretch">
+        <div className="flex w-full min-w-0 flex-col gap-y-3 h-full">
           {main}
           {after.map((Component, i) => {
             return <Component {...widgetProps} key={i} />
@@ -87,7 +87,7 @@ const Root = <TData,>({
             </div>
           )}
         </div>
-        <div className="flex w-full flex-col gap-y-3 xl:mt-0">
+        <div className="flex w-full flex-col gap-y-3 xl:mt-0 h-full">
           {sideBefore.map((Component, i) => {
             return <Component {...widgetProps} key={i} />
           })}
@@ -114,7 +114,7 @@ const Main = ({
   ...props
 }: ComponentPropsWithoutRef<"div">) => {
   return (
-    <div className={clx("flex w-full flex-col gap-y-3", className)} {...props}>
+    <div className={clx("flex w-full flex-col gap-y-3 h-full", className)} {...props}>
       {children}
     </div>
   )

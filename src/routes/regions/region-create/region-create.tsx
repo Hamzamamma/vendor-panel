@@ -19,7 +19,7 @@ export const RegionCreate = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {!isLoading && store && (
         <CreateRegionForm
           currencies={storeCurrencies}

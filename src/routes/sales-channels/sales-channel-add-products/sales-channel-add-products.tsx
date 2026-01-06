@@ -17,7 +17,7 @@ export const SalesChannelAddProducts = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {!isLoading && sales_channel && (
         <AddProductsToSalesChannelForm salesChannel={sales_channel} />
       )}

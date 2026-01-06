@@ -3,7 +3,6 @@ import { useOnboarding, useOrders } from "../../hooks/api"
 import { DashboardCharts } from "./components/dashboard-charts"
 import { DashboardOnboarding } from "./components/dashboard-onboarding"
 import { ChartSkeleton } from "./components/chart-skeleton"
-import { useReviews } from "../../hooks/api/review"
 
 export const Dashboard = () => {
   const [isClient, setIsClient] = useState(false)
@@ -12,20 +11,10 @@ export const Dashboard = () => {
   const { onboarding, isError, error, isPending } = useOnboarding()
 
   const { orders, isPending: isPendingOrders } = useOrders()
-  const { reviews, isPending: isPendingReviews } = useReviews()
-
-  const notFulfilledOrders =
-    orders?.filter((order) => order.fulfillment_status === "not_fulfilled")
-      .length || 0
-  const fulfilledOrders =
-    orders?.filter((order) => order.fulfillment_status === "fulfilled")
-      .length || 0
-  const reviewsToReply =
-    reviews?.filter((review: any) => !review?.seller_note).length || 0
 
   if (!isClient) return null
 
-  if (isPending || isPendingOrders || isPendingReviews) {
+  if (isPending || isPendingOrders) {
     return (
       <div>
         <ChartSkeleton />
@@ -37,26 +26,23 @@ export const Dashboard = () => {
     throw error
   }
 
-  if (
+  // Always show statistics at the top
+  const showOnboarding = 
     !onboarding?.products ||
     !onboarding?.locations_shipping ||
     !onboarding?.store_information
-    // !onboarding?.stripe_connect
-  )
-    return (
-      <DashboardOnboarding
-        products={onboarding?.products}
-        locations_shipping={onboarding?.locations_shipping}
-        store_information={onboarding?.store_information}
-        stripe_connect={onboarding?.stripe_connect}
-      />
-    )
 
   return (
-    <DashboardCharts
-      notFulfilledOrders={notFulfilledOrders}
-      fulfilledOrders={fulfilledOrders}
-      reviewsToReply={reviewsToReply}
-    />
+    <>
+      <DashboardCharts orders={orders} />
+      {showOnboarding && (
+        <DashboardOnboarding
+          products={onboarding?.products}
+          locations_shipping={onboarding?.locations_shipping}
+          store_information={onboarding?.store_information}
+          stripe_connect={onboarding?.stripe_connect}
+        />
+      )}
+    </>
   )
 }

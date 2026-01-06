@@ -18,7 +18,7 @@ export const LocationFulfillmentProviders = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && (
         <LocationEditFulfillmentProvidersForm location={stock_location} />
       )}

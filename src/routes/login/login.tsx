@@ -22,7 +22,12 @@ export const Login = () => {
   const [searchParams] = useSearchParams()
 
   const reason = searchParams.get("reason") || ""
-  const reasonMessage = reason && reason.toLowerCase() === "unauthorized" ? "Session expired" : reason
+  const reasonMessage = 
+    reason && reason.toLowerCase() === "unauthorized" 
+      ? "Sessione scaduta" 
+      : reason && reason.toLowerCase().includes("failed to fetch")
+      ? "Impossibile connettersi al server. Verifica che il backend sia in esecuzione su http://localhost:9000"
+      : reason
 
   const { getWidgets } = useDashboardExtension()
 
@@ -39,36 +44,69 @@ export const Login = () => {
   const { mutateAsync, isPending } = useSignInWithEmailPass()
 
   const handleSubmit = form.handleSubmit(async ({ email, password }) => {
-    await mutateAsync(
-      {
-        email,
-        password,
-      },
-      {
-        onError: (error) => {
-          if (isFetchError(error)) {
-            if (error.status === 401) {
-              form.setError("email", {
-                type: "manual",
-                message: error.message,
-              })
+    try {
+      await mutateAsync(
+        {
+          email,
+          password,
+        },
+        {
+          onError: (error) => {
+            if (isFetchError(error)) {
+              if (error.status === 401) {
+                form.setError("email", {
+                  type: "manual",
+                  message: error.message,
+                })
 
+                return
+              }
+            }
+
+            // Handle network errors (Failed to fetch, CORS, etc.)
+            const errorMessage = error?.message || ""
+            if (
+              errorMessage.toLowerCase().includes("failed to fetch") ||
+              errorMessage.toLowerCase().includes("network error") ||
+              errorMessage.toLowerCase().includes("cors")
+            ) {
+              form.setError("root.serverError", {
+                type: "manual",
+                message: "Impossibile connettersi al server. Verifica che il backend sia in esecuzione su http://localhost:9000",
+              })
               return
             }
-          }
 
-          form.setError("root.serverError", {
-            type: "manual",
-            message: error.message,
-          })
-        },
-        onSuccess: () => {
-          setTimeout(() => {
-            navigate(from, { replace: true })
-          }, 1000)
-        },
+            form.setError("root.serverError", {
+              type: "manual",
+              message: error.message || "Si è verificato un errore durante il login",
+            })
+          },
+          onSuccess: () => {
+            setTimeout(() => {
+              navigate(from, { replace: true })
+            }, 1000)
+          },
+        }
+      )
+    } catch (error: any) {
+      // Catch any unexpected errors
+      const errorMessage = error?.message || ""
+      if (
+        errorMessage.toLowerCase().includes("failed to fetch") ||
+        errorMessage.toLowerCase().includes("network error")
+      ) {
+        form.setError("root.serverError", {
+          type: "manual",
+          message: "Impossibile connettersi al server. Verifica che il backend sia in esecuzione su http://localhost:9000",
+        })
+      } else {
+        form.setError("root.serverError", {
+          type: "manual",
+          message: errorMessage || "Si è verificato un errore durante il login",
+        })
       }
-    )
+    }
   })
 
   const serverError =

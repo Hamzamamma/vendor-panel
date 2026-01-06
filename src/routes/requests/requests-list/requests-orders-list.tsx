@@ -16,9 +16,9 @@ export const RequestOrdersList = () => {
       <Container className="divided-y p-0">
         <div className="flex items-center justify-between px-6 py-4">
           <div>
-            <Heading>Orders Return Requests</Heading>
+            <Heading>Richieste Resi Ordini</Heading>
             <Text className="text-ui-fg-subtle" size="small">
-              Your requests to return an order
+              Le tue richieste per restituire un ordine
             </Text>
           </div>
         </div>

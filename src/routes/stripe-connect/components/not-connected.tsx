@@ -9,10 +9,10 @@ export const NotConnected = () => {
     <div className="flex items-center justify-center text-center my-32 flex-col">
       <ExclamationCircle />
       <Heading level="h2" className="mt-4">
-        Not connected
+        Non connesso
       </Heading>
       <Text className="text-ui-fg-subtle" size="small">
-        No stripe connection
+        Nessuna connessione Stripe
       </Text>
       <Button
         isLoading={isPending}
@@ -32,7 +32,7 @@ export const NotConnected = () => {
           })
         }
       >
-        Connect Stripe
+        Collega Stripe
       </Button>
     </div>
   )

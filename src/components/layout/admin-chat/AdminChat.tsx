@@ -44,8 +44,9 @@ export const AdminChat = () => {
         <IconButton
           variant="transparent"
           className="text-ui-fg-muted hover:text-ui-fg-subtle"
+          size="base"
         >
-          <ChatBubble />
+          <ChatBubble className="w-5 h-5" />
         </IconButton>
       </Drawer.Trigger>
       <Drawer.Content>

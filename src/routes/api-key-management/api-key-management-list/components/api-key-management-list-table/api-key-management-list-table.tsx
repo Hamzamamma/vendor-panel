@@ -51,8 +51,8 @@ export const ApiKeyManagementListTable = ({
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
           <Heading level="h2">
             {keyType === "publishable"
@@ -71,17 +71,19 @@ export const ApiKeyManagementListTable = ({
           </Button>
         </Link>
       </div>
-      <_DataTable
-        table={table}
-        filters={filters}
-        columns={columns}
-        count={count}
-        pageSize={PAGE_SIZE}
-        navigateTo={(row) => row.id}
-        pagination
-        queryObject={raw}
-        isLoading={isLoading}
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          filters={filters}
+          columns={columns}
+          count={count}
+          pageSize={PAGE_SIZE}
+          navigateTo={(row) => row.id}
+          pagination
+          queryObject={raw}
+          isLoading={isLoading}
+        />
+      </Container>
+    </div>
   )
 }

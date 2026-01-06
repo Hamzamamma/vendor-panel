@@ -3,7 +3,7 @@ import { ProductTagCreateForm } from "./components/product-tag-create-form"
 
 export const ProductTagCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <ProductTagCreateForm />
     </RouteFocusModal>
   )

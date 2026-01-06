@@ -36,25 +36,27 @@ export const CampaignDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        after: getWidgets("campaign.details.after"),
-        before: getWidgets("campaign.details.before"),
-        sideAfter: getWidgets("campaign.details.side.after"),
-        sideBefore: getWidgets("campaign.details.side.before"),
-      }}
-      hasOutlet
-      data={campaign}
-    >
-      <TwoColumnPage.Main>
-        <CampaignGeneralSection campaign={campaign} />
-        <CampaignPromotionSection campaign={campaign} />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        <CampaignConfigurationSection campaign={campaign} />
-        <CampaignSpend campaign={campaign} />
-        <CampaignBudget campaign={campaign} />
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          after: getWidgets("campaign.details.after"),
+          before: getWidgets("campaign.details.before"),
+          sideAfter: getWidgets("campaign.details.side.after"),
+          sideBefore: getWidgets("campaign.details.side.before"),
+        }}
+        hasOutlet
+        data={campaign}
+      >
+        <TwoColumnPage.Main>
+          <CampaignGeneralSection campaign={campaign} />
+          <CampaignPromotionSection campaign={campaign} />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          <CampaignConfigurationSection campaign={campaign} />
+          <CampaignSpend campaign={campaign} />
+          <CampaignBudget campaign={campaign} />
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

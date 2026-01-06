@@ -41,8 +41,8 @@ export const WorkflowExecutionListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
           <Heading>{t("workflowExecutions.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
@@ -50,20 +50,22 @@ export const WorkflowExecutionListTable = () => {
           </Text>
         </div>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        count={count}
-        isLoading={isLoading}
-        pageSize={PAGE_SIZE}
-        navigateTo={(row) => `${row.id}`}
-        search
-        pagination
-        queryObject={raw}
-        noRecords={{
-          message: t("workflowExecutions.list.noRecordsMessage"),
-        }}
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          count={count}
+          isLoading={isLoading}
+          pageSize={PAGE_SIZE}
+          navigateTo={(row) => `${row.id}`}
+          search
+          pagination
+          queryObject={raw}
+          noRecords={{
+            message: t("workflowExecutions.list.noRecordsMessage"),
+          }}
+        />
+      </Container>
+    </div>
   )
 }

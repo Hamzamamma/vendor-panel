@@ -1,5 +1,5 @@
-import { SidebarLeft, TriangleRightMini, XMark } from "@medusajs/icons"
-import { IconButton, clx } from "@medusajs/ui"
+import { SidebarLeft, TriangleRightMini, XMark, MagnifyingGlass } from "@medusajs/icons"
+import { IconButton, clx, Text } from "@medusajs/ui"
 import { AnimatePresence } from "motion/react"
 import { Dialog as RadixDialog } from "radix-ui"
 import { PropsWithChildren, ReactNode, useEffect, useState } from "react"
@@ -19,6 +19,8 @@ import { ProgressBar } from "../../common/progress-bar"
 import { Notifications } from "../notifications"
 import { AdminChat } from "../admin-chat"
 import { useMe } from "../../../hooks/api"
+import { UserMenu } from "../user-menu"
+import { useSearch } from "../../../providers/search-provider"
 
 export const Shell = ({ children }: PropsWithChildren) => {
   const globalShortcuts = useGlobalShortcuts()
@@ -203,16 +205,51 @@ const ToggleSidebar = () => {
   )
 }
 
+const Searchbar = () => {
+  const { t } = useTranslation()
+  const { toggleSearch } = useSearch()
+
+  return (
+    <button
+      onClick={toggleSearch}
+      className={clx(
+        "bg-ui-bg-base border border-ui-border-base text-ui-fg-subtle flex items-center gap-x-2 rounded-md px-3 py-1.5 outline-none w-full max-w-[400px]",
+        "hover:bg-ui-bg-subtle-hover",
+        "focus-visible:shadow-borders-focus"
+      )}
+    >
+      <MagnifyingGlass className="text-ui-fg-muted" />
+      <div className="flex-1 text-left">
+        <Text size="small" leading="compact" className="text-ui-fg-muted">
+          {t("app.search.topbarPlaceholder")}
+        </Text>
+      </div>
+      <div className="flex items-center gap-x-1">
+        <kbd className="hidden pointer-events-none select-none items-center gap-1 rounded border bg-ui-bg-subtle px-1.5 font-mono text-[10px] font-medium text-ui-fg-muted opacity-100 sm:flex">
+          <span className="text-xs">Ctrl</span>
+        </kbd>
+        <kbd className="hidden pointer-events-none select-none items-center gap-1 rounded border bg-ui-bg-subtle px-1.5 font-mono text-[10px] font-medium text-ui-fg-muted opacity-100 sm:flex">
+          <span className="text-xs">K</span>
+        </kbd>
+      </div>
+    </button>
+  )
+}
+
 const Topbar = () => {
   return (
-    <div className="grid w-full grid-cols-2 border-b p-3">
+    <div className="grid w-full grid-cols-[1fr_auto_1fr] p-3 gap-x-3">
       <div className="flex items-center gap-x-1.5">
         <ToggleSidebar />
         <Breadcrumbs />
       </div>
+      <div className="flex items-center justify-center">
+        <Searchbar />
+      </div>
       <div className="flex items-center justify-end gap-x-3">
         <AdminChat />
         <Notifications />
+        <UserMenu />
       </div>
     </div>
   )
@@ -223,7 +260,7 @@ const DesktopSidebarContainer = ({ children }: PropsWithChildren) => {
 
   return (
     <div
-      className={clx("hidden h-full w-[220px] border-r", {
+      className={clx("hidden h-full w-[220px]", {
         "lg:flex": desktop,
       })}
     >

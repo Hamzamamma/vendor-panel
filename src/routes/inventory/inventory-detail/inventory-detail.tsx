@@ -53,26 +53,28 @@ export const InventoryDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        after: getWidgets("inventory_item.details.after"),
-        before: getWidgets("inventory_item.details.before"),
-        sideAfter: getWidgets("inventory_item.details.side.after"),
-        sideBefore: getWidgets("inventory_item.details.side.before"),
-      }}
-      data={inventory_item}
-    >
-      <TwoColumnPage.Main>
-        <InventoryItemGeneralSection inventoryItem={inventory_item} />
-        <InventoryItemLocationLevelsSection inventoryItem={inventory_item} />
-        <InventoryItemReservationsSection inventoryItem={inventory_item} />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        <InventoryItemVariantsSection
-          variants={(inventory_item as any).variants}
-        />
-        <InventoryItemAttributeSection inventoryItem={inventory_item as any} />
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          after: getWidgets("inventory_item.details.after"),
+          before: getWidgets("inventory_item.details.before"),
+          sideAfter: getWidgets("inventory_item.details.side.after"),
+          sideBefore: getWidgets("inventory_item.details.side.before"),
+        }}
+        data={inventory_item}
+      >
+        <TwoColumnPage.Main>
+          <InventoryItemGeneralSection inventoryItem={inventory_item} />
+          <InventoryItemLocationLevelsSection inventoryItem={inventory_item} />
+          <InventoryItemReservationsSection inventoryItem={inventory_item} />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          <InventoryItemVariantsSection
+            variants={(inventory_item as any).variants}
+          />
+          <InventoryItemAttributeSection inventoryItem={inventory_item as any} />
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

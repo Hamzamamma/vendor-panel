@@ -17,7 +17,7 @@ export const TaxRegionTaxRateCreate = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && (
         <TaxRegionTaxRateCreateForm
           taxRegion={tax_region}

@@ -3,7 +3,7 @@ import { CreateProductTypeForm } from "./components/create-product-type-form"
 
 export const ProductTypeCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreateProductTypeForm />
     </RouteFocusModal>
   )

@@ -35,22 +35,24 @@ export const RequestDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        after: getWidgets("campaign.details.after"),
-        before: getWidgets("campaign.details.before"),
-        sideAfter: getWidgets("campaign.details.side.after"),
-        sideBefore: getWidgets("campaign.details.side.before"),
-      }}
-      hasOutlet
-      showJSON
-      showMetadata
-      data={request}
-    >
-      <TwoColumnPage.Main>
-        <ReviewGeneralSection />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>Sidebar</TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          after: getWidgets("campaign.details.after"),
+          before: getWidgets("campaign.details.before"),
+          sideAfter: getWidgets("campaign.details.side.after"),
+          sideBefore: getWidgets("campaign.details.side.before"),
+        }}
+        hasOutlet
+        showJSON
+        showMetadata
+        data={request}
+      >
+        <TwoColumnPage.Main>
+          <ReviewGeneralSection />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>Sidebar</TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

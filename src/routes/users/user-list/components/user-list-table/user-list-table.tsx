@@ -47,36 +47,38 @@ export const UserListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <DataTable
-        data={
-          processedMembers?.slice(membersOffset, membersOffset + PAGE_SIZE) ??
-          []
-        }
-        columns={columns}
-        // filters={filters}
-        getRowId={(row) => row.id}
-        rowCount={count}
-        pageSize={PAGE_SIZE}
-        heading={t("users.domain")}
-        rowHref={(row) => `${row.id}`}
-        isLoading={isPending}
-        action={{
-          label: t("users.invite"),
-          to: "invite",
-        }}
-        emptyState={{
-          empty: {
-            heading: t("users.list.empty.heading"),
-            description: t("users.list.empty.description"),
-          },
-          filtered: {
-            heading: t("users.list.filtered.heading"),
-            description: t("users.list.filtered.description"),
-          },
-        }}
-      />
-    </Container>
+    <div className="mx-auto w-full max-w-[850px]">
+      <Container className="divide-y p-0 w-full">
+        <DataTable
+          data={
+            processedMembers?.slice(membersOffset, membersOffset + PAGE_SIZE) ??
+            []
+          }
+          columns={columns}
+          // filters={filters}
+          getRowId={(row) => row.id}
+          rowCount={count}
+          pageSize={PAGE_SIZE}
+          heading={t("users.domain")}
+          rowHref={(row) => `${row.id}`}
+          isLoading={isPending}
+          action={{
+            label: t("users.invite"),
+            to: "invite",
+          }}
+          emptyState={{
+            empty: {
+              heading: t("users.list.empty.heading"),
+              description: t("users.list.empty.description"),
+            },
+            filtered: {
+              heading: t("users.list.filtered.heading"),
+              description: t("users.list.filtered.description"),
+            },
+          }}
+        />
+      </Container>
+    </div>
   )
 }
 

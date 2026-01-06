@@ -19,7 +19,7 @@ export function OrderAllocateItems() {
   const ready = !isLoading && order
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && <OrderAllocateItemsForm order={order} />}
     </RouteFocusModal>
   )

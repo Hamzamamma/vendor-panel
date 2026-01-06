@@ -23,7 +23,7 @@ export const ApiKeyManagementAddSalesChannels = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && (
         <ApiKeySalesChannelsForm apiKey={id!} preSelected={preSelected} />
       )}

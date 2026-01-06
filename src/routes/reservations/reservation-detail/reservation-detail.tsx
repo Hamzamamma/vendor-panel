@@ -48,23 +48,25 @@ export const ReservationDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        before: getWidgets("reservation.details.before"),
-        after: getWidgets("reservation.details.after"),
-        sideBefore: getWidgets("reservation.details.side.before"),
-        sideAfter: getWidgets("reservation.details.side.after"),
-      }}
-      data={reservation}
-    >
-      <TwoColumnPage.Main>
-        <ReservationGeneralSection reservation={reservation} />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        {inventory_item && (
-          <InventoryItemGeneralSection inventoryItem={inventory_item!} />
-        )}
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          before: getWidgets("reservation.details.before"),
+          after: getWidgets("reservation.details.after"),
+          sideBefore: getWidgets("reservation.details.side.before"),
+          sideAfter: getWidgets("reservation.details.side.after"),
+        }}
+        data={reservation}
+      >
+        <TwoColumnPage.Main>
+          <ReservationGeneralSection reservation={reservation} />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          {inventory_item && (
+            <InventoryItemGeneralSection inventoryItem={inventory_item!} />
+          )}
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

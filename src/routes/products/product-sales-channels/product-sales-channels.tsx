@@ -13,7 +13,7 @@ export const ProductSalesChannels = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {!isLoading && product && <EditSalesChannelsForm product={product} />}
     </RouteFocusModal>
   )

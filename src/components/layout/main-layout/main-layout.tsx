@@ -3,16 +3,13 @@ import {
   ChevronDownMini,
   CogSixTooth,
   CurrencyDollar,
-  MagnifyingGlass,
   MinusMini,
   ReceiptPercent,
   ShoppingCart,
   Tag,
   Users,
   Component,
-  Star,
-  ListCheckbox,
-  ChatBubbleLeftRight,
+  Globe,
 } from "@medusajs/icons"
 import { Divider, Text, clx } from "@medusajs/ui"
 import { Collapsible as RadixCollapsible } from "radix-ui"
@@ -25,12 +22,13 @@ import { Shell } from "../../layout/shell"
 import { useLocation } from "react-router-dom"
 import { useMe } from "../../../hooks/api"
 
-import { useSearch } from "../../../providers/search-provider"
-import { UserMenu } from "../user-menu"
 import { StripeIcon } from "../../../assets/icons/Stripe"
+import { GoogleIcon } from "../../../assets/icons/Google"
+import { TikTokIcon } from "../../../assets/icons/TikTok"
+import { FacebookIcon } from "../../../assets/icons/Facebook"
+import { InstagramIcon } from "../../../assets/icons/Instagram"
+import { GoogleAnalyticsIcon } from "../../../assets/icons/GoogleAnalytics"
 import { ImageAvatar } from "../../common/image-avatar"
-import { useUnreads } from "@talkjs/react"
-
 export const MainLayout = () => {
   return (
     <Shell>
@@ -54,10 +52,6 @@ const MainSidebar = () => {
             <CoreRouteSection />
             <ExtensionRouteSection />
           </div>
-          <UtilitySection />
-        </div>
-        <div className="bg-ui-bg-subtle sticky bottom-0">
-          <UserSection />
         </div>
       </div>
     </aside>
@@ -100,13 +94,16 @@ const Header = () => {
 const useCoreRoutes = (): Omit<INavItem, "pathname">[] => {
   const { t } = useTranslation()
 
-  const unreadMessages = useUnreads()
-
   return [
     {
       icon: <Component />,
       label: "Dashboard",
       to: "/dashboard",
+    },
+    {
+      icon: <Globe />,
+      label: t("onlineStore.domain"),
+      to: "/online-store",
     },
     {
       icon: <ShoppingCart />,
@@ -179,85 +176,56 @@ const useCoreRoutes = (): Omit<INavItem, "pathname">[] => {
       to: "/price-lists",
     },
     {
-      icon: <Star />,
-      label: "Reviews",
-      to: "/reviews",
-    },
-    {
-      icon: <ChatBubbleLeftRight />,
-      label: `Messages ${unreadMessages?.length && unreadMessages?.length > 0 ? `(${unreadMessages?.length})` : ""}`,
-      to: "/messages",
-    },
-    {
-      icon: <ListCheckbox />,
-      label: "Requests",
-      to: "/requests",
-      items: [
-        {
-          label: "Collections",
-          to: "/requests/collections",
-        },
-        {
-          label: "Categories",
-          to: "/requests/categories",
-        },
-        {
-          label: "Reviews",
-          to: "/requests/reviews",
-        },
-        {
-          label: "Orders returns",
-          to: "/requests/orders",
-        },
-      ],
+      icon: <CogSixTooth />,
+      label: t("app.nav.settings.header"),
+      to: "/settings",
     },
   ]
 }
 
 const useExtensionRoutes = (): Omit<INavItem, "pathname">[] => {
+  const { t } = useTranslation()
+
   return [
+    {
+      icon: <GoogleIcon />,
+      label: t("googleYouTube.domain"),
+      to: "/google-youtube",
+    },
     {
       icon: <StripeIcon />,
       label: "Stripe Connect",
       to: "/stripe-connect",
     },
+    {
+      icon: <TikTokIcon />,
+      label: t("tiktok.domain"),
+      to: "/tiktok",
+    },
+    {
+      icon: <FacebookIcon />,
+      label: t("facebook.domain"),
+      to: "/facebook",
+    },
+    {
+      icon: <InstagramIcon />,
+      label: t("instagram.domain"),
+      to: "/instagram",
+    },
+    {
+      icon: <GoogleAnalyticsIcon />,
+      label: t("googleAnalytics.domain"),
+      to: "/google-analytics",
+    },
   ]
 }
 
-const Searchbar = () => {
-  const { t } = useTranslation()
-  const { toggleSearch } = useSearch()
-
-  return (
-    <div className="px-3">
-      <button
-        onClick={toggleSearch}
-        className={clx(
-          "bg-ui-bg-subtle text-ui-fg-subtle flex w-full items-center gap-x-2.5 rounded-md px-2 py-1 outline-none",
-          "hover:bg-ui-bg-subtle-hover",
-          "focus-visible:shadow-borders-focus"
-        )}
-      >
-        <MagnifyingGlass />
-        <div className="flex-1 text-left">
-          <Text size="small" leading="compact" weight="plus">
-            {t("app.search.label")}
-          </Text>
-        </div>
-        <Text size="small" leading="compact" className="text-ui-fg-muted">
-          ⌘K
-        </Text>
-      </button>
-    </div>
-  )
-}
 
 const CoreRouteSection = () => {
   const coreRoutes = useCoreRoutes()
 
   return (
     <nav className="flex flex-col gap-y-1 py-3">
-      <Searchbar />
       {coreRoutes.map((route) => {
         return <NavItem key={route.to} {...route} />
       })}
@@ -304,29 +272,3 @@ const ExtensionRouteSection = () => {
   )
 }
 
-const UtilitySection = () => {
-  const location = useLocation()
-  const { t } = useTranslation()
-
-  return (
-    <div className="flex flex-col gap-y-0.5 py-3">
-      <NavItem
-        label={t("app.nav.settings.header")}
-        to="/settings"
-        from={location.pathname}
-        icon={<CogSixTooth />}
-      />
-    </div>
-  )
-}
-
-const UserSection = () => {
-  return (
-    <div>
-      <div className="px-3">
-        <Divider variant="dashed" />
-      </div>
-      <UserMenu />
-    </div>
-  )
-}

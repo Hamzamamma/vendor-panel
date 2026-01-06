@@ -39,22 +39,24 @@ export const CategoryDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        after: getWidgets("product_category.details.after"),
-        before: getWidgets("product_category.details.before"),
-        sideAfter: getWidgets("product_category.details.side.after"),
-        sideBefore: getWidgets("product_category.details.side.before"),
-      }}
-      data={product_category}
-    >
-      <TwoColumnPage.Main>
-        <CategoryGeneralSection category={product_category} />
-        <CategoryProductSection category={product_category} />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        <CategoryOrganizeSection category={product_category} />
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          after: getWidgets("product_category.details.after"),
+          before: getWidgets("product_category.details.before"),
+          sideAfter: getWidgets("product_category.details.side.after"),
+          sideBefore: getWidgets("product_category.details.side.before"),
+        }}
+        data={product_category}
+      >
+        <TwoColumnPage.Main>
+          <CategoryGeneralSection category={product_category} />
+          <CategoryProductSection category={product_category} />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          <CategoryOrganizeSection category={product_category} />
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

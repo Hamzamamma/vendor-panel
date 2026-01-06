@@ -59,10 +59,10 @@ export const CategoryListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
-          <Heading>{t("categories.domain")}</Heading>
+          <Heading className="text-4xl font-semibold">{t("categories.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
             Organize products into categories.
           </Text>
@@ -73,18 +73,20 @@ export const CategoryListTable = () => {
           </Button>
         </div>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        count={count}
-        pageSize={PAGE_SIZE}
-        isLoading={isLoading}
-        navigateTo={(row) => row.id}
-        queryObject={raw}
-        search
-        pagination
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          count={count}
+          pageSize={PAGE_SIZE}
+          isLoading={isLoading}
+          navigateTo={(row) => row.id}
+          queryObject={raw}
+          search
+          pagination
+        />
+      </Container>
+    </div>
   )
 }
 

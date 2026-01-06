@@ -41,190 +41,52 @@ export const RouteMap: RouteObject[] = [
             lazy: () => import("../../routes/dashboard"),
           },
           {
-            path: "/requests",
+            path: "online-store",
             errorElement: <ErrorBoundary />,
             handle: {
-              breadcrumb: () => "Requests",
+              breadcrumb: () => t("onlineStore.domain"),
             },
-            children: [
-              {
-                path: "",
-                lazy: async () => {
-                  const { Requests } = await import(
-                    "../../routes/requests/requests-list"
-                  )
-
-                  return {
-                    Component: Requests,
-                  }
-                },
-              },
-              {
-                path: "categories",
-                handle: {
-                  breadcrumb: () => "Categories requests",
-                },
-                lazy: async () => {
-                  const { RequestsCategoriesList } = await import(
-                    "../../routes/requests/requests-list"
-                  )
-
-                  return {
-                    Component: RequestsCategoriesList,
-                  }
-                },
-                children: [
-                  {
-                    path: "create",
-                    lazy: () =>
-                      import("../../routes/categories/category-create"),
-                  },
-                  {
-                    path: ":id/edit",
-                    lazy: () => import("../../routes/categories/category-edit"),
-                  },
-                ],
-              },
-              {
-                path: "collections",
-                handle: {
-                  breadcrumb: () => "Collection requests",
-                },
-                lazy: async () => {
-                  const { RequestsCollectionsList } = await import(
-                    "../../routes/requests/requests-list"
-                  )
-
-                  return {
-                    Component: RequestsCollectionsList,
-                  }
-                },
-                children: [
-                  {
-                    path: "create",
-                    lazy: () =>
-                      import("../../routes/collections/collection-create"),
-                  },
-                  {
-                    path: ":id/edit",
-                    lazy: () =>
-                      import("../../routes/collections/collection-edit"),
-                  },
-                ],
-              },
-              {
-                path: "reviews",
-                handle: {
-                  breadcrumb: () => "Reviews requests",
-                },
-                lazy: async () => {
-                  const { RequestReviewsList } = await import(
-                    "../../routes/requests/requests-list"
-                  )
-
-                  return {
-                    Component: RequestReviewsList,
-                  }
-                },
-                children: [
-                  {
-                    path: ":id/edit",
-                    lazy: () => import("../../routes/reviews/review-report"),
-                  },
-                ],
-              },
-              {
-                path: "orders",
-                handle: {
-                  breadcrumb: () => "Orders requests",
-                },
-                lazy: async () => {
-                  const { RequestOrdersList } = await import(
-                    "../../routes/requests/requests-list"
-                  )
-
-                  return {
-                    Component: RequestOrdersList,
-                  }
-                },
-                children: [
-                  {
-                    path: ":id/review",
-                    lazy: async () =>
-                      await import(
-                        "../../routes/requests/request-order-return"
-                      ),
-                  },
-                ],
-              },
-              {
-                path: ":id",
-                lazy: async () => {
-                  const { Component, Breadcrumb, loader } = await import(
-                    "../../routes/requests/request-detail"
-                  )
-
-                  return {
-                    Component,
-                    loader,
-                    handle: {
-                      breadcrumb: (match: UIMatch<any>) => (
-                        <Breadcrumb {...match} />
-                      ),
-                    },
-                  }
-                },
-              },
-            ],
+            lazy: () => import("../../routes/online-store"),
           },
           {
-            path: "/messages",
+            path: "google-youtube",
             errorElement: <ErrorBoundary />,
             handle: {
-              breadcrumb: () => "Messages",
+              breadcrumb: () => t("googleYouTube.domain"),
             },
-            lazy: () => import("../../routes/messages"),
+            lazy: () => import("../../routes/google-youtube"),
           },
           {
-            path: "/reviews",
+            path: "tiktok",
             errorElement: <ErrorBoundary />,
             handle: {
-              breadcrumb: () => "Reviews",
+              breadcrumb: () => t("tiktok.domain"),
             },
-            children: [
-              {
-                path: "",
-                lazy: () => import("../../routes/reviews/reviews-list"),
-              },
-              {
-                path: ":id",
-                lazy: async () => {
-                  const { Component, Breadcrumb, loader } = await import(
-                    "../../routes/reviews/review-detail"
-                  )
-
-                  return {
-                    Component,
-                    loader,
-                    handle: {
-                      breadcrumb: (match: UIMatch<any>) => (
-                        <Breadcrumb {...match} />
-                      ),
-                    },
-                  }
-                },
-                children: [
-                  {
-                    path: "reply",
-                    lazy: () => import("../../routes/reviews/review-reply"),
-                  },
-                  {
-                    path: "report",
-                    lazy: () => import("../../routes/reviews/review-report"),
-                  },
-                ],
-              },
-            ],
+            lazy: () => import("../../routes/tiktok"),
+          },
+          {
+            path: "facebook",
+            errorElement: <ErrorBoundary />,
+            handle: {
+              breadcrumb: () => t("facebook.domain"),
+            },
+            lazy: () => import("../../routes/facebook"),
+          },
+          {
+            path: "instagram",
+            errorElement: <ErrorBoundary />,
+            handle: {
+              breadcrumb: () => t("instagram.domain"),
+            },
+            lazy: () => import("../../routes/instagram"),
+          },
+          {
+            path: "google-analytics",
+            errorElement: <ErrorBoundary />,
+            handle: {
+              breadcrumb: () => t("googleAnalytics.domain"),
+            },
+            lazy: () => import("../../routes/google-analytics"),
           },
           {
             path: "/products",

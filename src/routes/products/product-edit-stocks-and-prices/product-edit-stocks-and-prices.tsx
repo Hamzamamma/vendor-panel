@@ -85,7 +85,7 @@ export const ProductEditStocksAndPrices = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && (
         <StocksAndPricesEdit
           product={product}

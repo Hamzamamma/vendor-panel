@@ -78,10 +78,10 @@ const UserBadge = () => {
 
   if (isPending) {
     return (
-      <button className="shadow-borders-base flex max-w-[192px] select-none items-center gap-x-2 overflow-hidden text-ellipsis whitespace-nowrap rounded-full py-1 pl-1 pr-2.5">
-        <Skeleton className="h-5 w-5 rounded-full" />
+      <div className="bg-ui-bg-subtle flex items-center gap-2 rounded-md px-2 py-1">
+        <Skeleton className="h-7 w-7 rounded-full" />
         <Skeleton className="h-[9px] w-[70px]" />
-      </button>
+      </div>
     )
   }
 
@@ -90,40 +90,38 @@ const UserBadge = () => {
   }
 
   return (
-    <div className="p-3">
-      <DropdownMenu.Trigger
-        disabled={!member}
-        className={clx(
-          "bg-ui-bg-subtle grid w-full cursor-pointer grid-cols-[24px_1fr_15px] items-center gap-2 rounded-md py-1 pl-0.5 pr-2 outline-none",
-          "hover:bg-ui-bg-subtle-hover",
-          "data-[state=open]:bg-ui-bg-subtle-hover",
-          "focus-visible:shadow-borders-focus"
+    <DropdownMenu.Trigger
+      disabled={!member}
+      className={clx(
+        "bg-ui-bg-subtle flex cursor-pointer items-center gap-2 rounded-md px-2 py-1 outline-none",
+        "hover:bg-ui-bg-subtle-hover",
+        "data-[state=open]:bg-ui-bg-subtle-hover",
+        "focus-visible:shadow-borders-focus"
+      )}
+    >
+      <div className="flex size-7 items-center justify-center">
+        {fallback ? (
+          <ImageAvatar src={avatar || "/logo.svg"} size={7} rounded />
+        ) : (
+          <Skeleton className="h-6 w-6 rounded-full" />
         )}
-      >
-        <div className="flex size-7 items-center justify-center">
-          {fallback ? (
-            <ImageAvatar src={avatar || "/logo.svg"} size={7} rounded />
-          ) : (
-            <Skeleton className="h-6 w-6 rounded-full" />
-          )}
-        </div>
-        <div className="flex items-center overflow-hidden">
-          {displayName ? (
-            <Text
-              size="xsmall"
-              weight="plus"
-              leading="compact"
-              className="truncate"
-            >
-              {displayName}
-            </Text>
-          ) : (
-            <Skeleton className="h-[9px] w-[70px]" />
-          )}
-        </div>
-        <EllipsisHorizontal className="text-ui-fg-muted" />
-      </DropdownMenu.Trigger>
-    </div>
+      </div>
+      <div className="flex items-center overflow-hidden max-w-[120px]">
+        {displayName ? (
+          <Text
+            size="xsmall"
+            weight="plus"
+            leading="compact"
+            className="truncate"
+          >
+            {displayName}
+          </Text>
+        ) : (
+          <Skeleton className="h-[9px] w-[70px]" />
+        )}
+      </div>
+      <EllipsisHorizontal className="text-ui-fg-muted flex-shrink-0 w-5 h-5" />
+    </DropdownMenu.Trigger>
   )
 }
 

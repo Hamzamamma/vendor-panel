@@ -20,7 +20,7 @@ export function OrderCreateShipment() {
   const fulfillment = order?.fulfillments?.find((f) => f.id === f_id)
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && fulfillment && (
         <OrderCreateShipmentForm
           order={order}

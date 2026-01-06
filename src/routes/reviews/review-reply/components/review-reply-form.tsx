@@ -34,7 +34,7 @@ export const ReviewReplyForm = () => {
         },
         {
           onSuccess: () => {
-            toast.success("Reply has been deleted")
+            toast.success("Risposta eliminata")
             handleSuccess(`/reviews/${id}`)
           },
           onError: (error) => {
@@ -49,7 +49,7 @@ export const ReviewReplyForm = () => {
         },
         {
           onSuccess: () => {
-            toast.success("Reply has been sent")
+            toast.success("Risposta inviata")
             handleSuccess(`/reviews/${id}`)
           },
           onError: (error) => {
@@ -64,12 +64,12 @@ export const ReviewReplyForm = () => {
     <RouteDrawer>
       <RouteDrawer.Header>
         <RouteDrawer.Title asChild>
-          <Heading>{review.seller_note ? "Edit Reply" : "Reply"}</Heading>
+          <Heading>{review.seller_note ? "Modifica Risposta" : "Rispondi"}</Heading>
         </RouteDrawer.Title>
         <RouteDrawer.Description>
           {review.seller_note
-            ? "Edit your reply to customer review."
-            : "Reply to customer review."}
+            ? "Modifica la tua risposta alla recensione del cliente."
+            : "Rispondi alla recensione del cliente."}
         </RouteDrawer.Description>
       </RouteDrawer.Header>
       <RouteDrawer.Form form={form}>
@@ -80,7 +80,7 @@ export const ReviewReplyForm = () => {
             render={({ field }) => {
               return (
                 <Form.Item>
-                  <Form.Label>Comment</Form.Label>
+                  <Form.Label>Commento</Form.Label>
                   <Form.Control>
                     <Textarea autoComplete="off" {...field} />
                   </Form.Control>
@@ -99,7 +99,7 @@ export const ReviewReplyForm = () => {
             //@ts-ignore
             onClick={() => handleSubmit({ deleting: true })}
           >
-            Delete reply
+            Elimina risposta
           </Button>
         )}
         <Button
@@ -108,7 +108,7 @@ export const ReviewReplyForm = () => {
           className="px-6"
           isLoading={isPending}
         >
-          {review.seller_note ? "Save" : "Reply"}
+          {review.seller_note ? "Salva" : "Rispondi"}
         </Button>
       </RouteDrawer.Footer>
     </RouteDrawer>

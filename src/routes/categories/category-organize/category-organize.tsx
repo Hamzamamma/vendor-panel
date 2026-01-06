@@ -3,7 +3,7 @@ import { OrganizeCategoryForm } from "./components/organize-category-form/organi
 
 export const CategoryOrganize = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <OrganizeCategoryForm />
     </RouteFocusModal>
   )

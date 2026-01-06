@@ -3,7 +3,7 @@ import { CreateCustomerGroupForm } from "./components/create-customer-group-form
 
 export const CustomerGroupCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreateCustomerGroupForm />
     </RouteFocusModal>
   )

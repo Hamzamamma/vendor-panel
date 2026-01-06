@@ -17,7 +17,7 @@ export const ProductMedia = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <RouteFocusModal.Title asChild>
         <span className="sr-only">{t("products.media.label")}</span>
       </RouteFocusModal.Title>

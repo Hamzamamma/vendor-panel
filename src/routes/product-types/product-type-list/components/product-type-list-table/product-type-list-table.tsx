@@ -45,8 +45,8 @@ export const ProductTypeListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
           <Heading>{t("productTypes.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
@@ -57,30 +57,32 @@ export const ProductTypeListTable = () => {
           <Link to="create">Request Product Type</Link>
         </Button>
       </div>
-      <_DataTable
-        table={table}
-        filters={filters}
-        isLoading={isLoading}
-        columns={columns}
-        pageSize={PAGE_SIZE}
-        count={count}
-        orderBy={[
-          { key: "value", label: t("fields.value") },
-          {
-            key: "created_at",
-            label: t("fields.createdAt"),
-          },
-          {
-            key: "updated_at",
-            label: t("fields.updatedAt"),
-          },
-        ]}
-        navigateTo={({ original }) => original.id}
-        queryObject={raw}
-        pagination
-        search
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          filters={filters}
+          isLoading={isLoading}
+          columns={columns}
+          pageSize={PAGE_SIZE}
+          count={count}
+          orderBy={[
+            { key: "value", label: t("fields.value") },
+            {
+              key: "created_at",
+              label: t("fields.createdAt"),
+            },
+            {
+              key: "updated_at",
+              label: t("fields.updatedAt"),
+            },
+          ]}
+          navigateTo={({ original }) => original.id}
+          queryObject={raw}
+          pagination
+          search
+        />
+      </Container>
+    </div>
   )
 }
 

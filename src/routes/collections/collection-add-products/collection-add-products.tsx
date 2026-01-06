@@ -13,7 +13,7 @@ export const CollectionAddProducts = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {!isLoading && product_collection && (
         <AddProductsToCollectionForm collection={product_collection} />
       )}

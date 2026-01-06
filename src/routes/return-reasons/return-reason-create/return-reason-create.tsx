@@ -3,7 +3,7 @@ import { ReturnReasonCreateForm } from "./components/return-reason-create-form"
 
 export const ReturnReasonCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <ReturnReasonCreateForm />
     </RouteFocusModal>
   )

@@ -121,61 +121,60 @@ export const ProductListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
-        <Heading level="h2">{t("products.domain")}</Heading>
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
+        <Heading level="h2" className="text-4xl font-semibold">{t("products.domain")}</Heading>
         <div className="flex items-center justify-center gap-x-2">
           <Button size="small" variant="secondary" asChild>
             <Link to={`export${location.search}`}>{t("actions.export")}</Link>
-          </Button>
-          <Button size="small" variant="secondary" asChild>
-            <Link to="import">{t("actions.import")}</Link>
           </Button>
           <Button size="small" variant="primary" asChild>
             <Link to="create">{t("actions.create")}</Link>
           </Button>
         </div>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        count={count}
-        pageSize={PAGE_SIZE}
-        filters={filters}
-        search
-        pagination
-        isLoading={isLoading}
-        queryObject={raw}
-        navigateTo={(row) => `${row.original.id}`}
-        orderBy={[
-          { key: "title", label: t("fields.title") },
-          {
-            key: "created_at",
-            label: t("fields.createdAt"),
-          },
-          {
-            key: "updated_at",
-            label: t("fields.updatedAt"),
-          },
-        ]}
-        commands={[
-          {
-            action: handleDelete,
-            label: t("actions.delete"),
-            shortcut: "d",
-          },
-        ]}
-        noRecords={{
-          title: t("products.list.noRecordsTitle"),
-          message: t("products.list.noRecordsMessage"),
-          action: {
-            to: "/products/create",
-            label: t("actions.add"),
-          },
-        }}
-      />
-      <Outlet />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          count={count}
+          pageSize={PAGE_SIZE}
+          filters={filters}
+          search
+          pagination
+          isLoading={isLoading}
+          queryObject={raw}
+          navigateTo={(row) => `${row.original.id}`}
+          orderBy={[
+            { key: "title", label: t("fields.title") },
+            {
+              key: "created_at",
+              label: t("fields.createdAt"),
+            },
+            {
+              key: "updated_at",
+              label: t("fields.updatedAt"),
+            },
+          ]}
+          commands={[
+            {
+              action: handleDelete,
+              label: t("actions.delete"),
+              shortcut: "d",
+            },
+          ]}
+          noRecords={{
+            title: t("products.list.noRecordsTitle"),
+            message: t("products.list.noRecordsMessage"),
+            action: {
+              to: "/products/create",
+              label: t("actions.add"),
+            },
+          }}
+        />
+        <Outlet />
+      </Container>
+    </div>
   )
 }
 

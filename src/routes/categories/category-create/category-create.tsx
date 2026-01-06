@@ -9,7 +9,7 @@ export const CategoryCreate = () => {
   const parentCategoryId = searchParams.get("parent_category_id")
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreateCategoryForm parentCategoryId={parentCategoryId} />
     </RouteFocusModal>
   )

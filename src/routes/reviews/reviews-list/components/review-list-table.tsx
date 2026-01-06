@@ -63,44 +63,46 @@ export const ReviewListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
-          <Heading>Reviews</Heading>
+          <Heading>Recensioni</Heading>
           <Text className="text-ui-fg-subtle" size="small">
-            Manage your reviews
+            Gestisci le tue recensioni
           </Text>
         </div>
         <div>
-          <Text className="text-ui-fg-subtle mb-2">{count} reviews</Text>
+          <Text className="text-ui-fg-subtle mb-2">{count} recensioni</Text>
           <StarsRating rate={averageRating} />
         </div>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        pageSize={PAGE_SIZE}
-        count={count}
-        // orderBy={[
-        //   {
-        //     key: 'created_at',
-        //     label: 'Added',
-        //   },
-        //   {
-        //     key: 'seller_note',
-        //     label: 'Status',
-        //   },
-        //   { key: 'rating', label: 'Stars' },
-        // ]}
-        isLoading={isLoading}
-        navigateTo={(row) => row.original.id}
-        // search
-        queryObject={raw}
-        noRecords={{
-          message: "Your reviews will show up here.",
-        }}
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          pageSize={PAGE_SIZE}
+          count={count}
+          // orderBy={[
+          //   {
+          //     key: 'created_at',
+          //     label: 'Added',
+          //   },
+          //   {
+          //     key: 'seller_note',
+          //     label: 'Status',
+          //   },
+          //   { key: 'rating', label: 'Stars' },
+          // ]}
+          isLoading={isLoading}
+          navigateTo={(row) => row.original.id}
+          // search
+          queryObject={raw}
+          noRecords={{
+            message: "Le tue recensioni appariranno qui.",
+          }}
+        />
+      </Container>
+    </div>
   )
 }
 

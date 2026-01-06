@@ -40,22 +40,24 @@ export const LocationDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        after: getWidgets("location.details.after"),
-        before: getWidgets("location.details.before"),
-        sideAfter: getWidgets("location.details.side.after"),
-        sideBefore: getWidgets("location.details.side.before"),
-      }}
-      data={location}
-      hasOutlet
-    >
-      <TwoColumnPage.Main>
-        <LocationGeneralSection location={location} />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        <LocationsFulfillmentProvidersSection location={location} />
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          after: getWidgets("location.details.after"),
+          before: getWidgets("location.details.before"),
+          sideAfter: getWidgets("location.details.side.after"),
+          sideBefore: getWidgets("location.details.side.before"),
+        }}
+        data={location}
+        hasOutlet
+      >
+        <TwoColumnPage.Main>
+          <LocationGeneralSection location={location} />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          <LocationsFulfillmentProvidersSection location={location} />
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

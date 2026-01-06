@@ -35,27 +35,29 @@ export const ProductDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        after,
-        before,
-        sideAfter,
-        sideBefore,
-      }}
-      data={product}
-    >
-      <TwoColumnPage.Main>
-        <ProductGeneralSection product={product} />
-        <ProductMediaSection product={product} />
-        <ProductOptionSection product={product} />
-        <ProductVariantSection product={product} />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        {/* <ProductShippingProfileSection product={product} /> */}
-        <ProductOrganizationSection product={product} />
-        {/* <ProductAttributeSection product={product} /> */}
-        <ProductAdditionalAttributesSection product={product} />
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          after,
+          before,
+          sideAfter,
+          sideBefore,
+        }}
+        data={product}
+      >
+        <TwoColumnPage.Main>
+          <ProductGeneralSection product={product} />
+          <ProductMediaSection product={product} />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          {/* <ProductShippingProfileSection product={product} /> */}
+          <ProductOrganizationSection product={product} />
+          {/* <ProductAttributeSection product={product} /> */}
+          <ProductAdditionalAttributesSection product={product} />
+          <ProductOptionSection product={product} />
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+      <ProductVariantSection product={product} />
+    </div>
   )
 }

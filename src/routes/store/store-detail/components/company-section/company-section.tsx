@@ -8,9 +8,9 @@ export const CompanySection = ({ seller }: { seller: StoreVendor }) => {
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <div>
-          <Heading>Company</Heading>
+          <Heading>Azienda</Heading>
           <Text size="small" className="text-ui-fg-subtle text-pretty">
-            Manage your company's details
+            Gestisci i dettagli della tua azienda
           </Text>
         </div>
         <ActionMenu
@@ -19,7 +19,7 @@ export const CompanySection = ({ seller }: { seller: StoreVendor }) => {
               actions: [
                 {
                   icon: <Pencil />,
-                  label: "Edit",
+                  label: "Modifica",
                   to: "edit-company",
                 },
               ],
@@ -29,7 +29,7 @@ export const CompanySection = ({ seller }: { seller: StoreVendor }) => {
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 px-6 py-4">
         <Text size="small" leading="compact" weight="plus">
-          Address
+          Indirizzo
         </Text>
         <Text size="small" leading="compact">
           {seller.address_line || "-"}
@@ -37,7 +37,7 @@ export const CompanySection = ({ seller }: { seller: StoreVendor }) => {
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 px-6 py-4">
         <Text size="small" leading="compact" weight="plus">
-          Postal Code
+          CAP
         </Text>
         <Text size="small" leading="compact">
           {seller.postal_code || "-"}
@@ -45,7 +45,7 @@ export const CompanySection = ({ seller }: { seller: StoreVendor }) => {
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 px-6 py-4">
         <Text size="small" leading="compact" weight="plus">
-          City
+          Città
         </Text>
         <Text size="small" leading="compact">
           {seller.city || "-"}
@@ -53,7 +53,7 @@ export const CompanySection = ({ seller }: { seller: StoreVendor }) => {
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 px-6 py-4">
         <Text size="small" leading="compact" weight="plus">
-          Country
+          Paese
         </Text>
         <Text size="small" leading="compact">
           {seller.country_code || "-"}
@@ -61,7 +61,7 @@ export const CompanySection = ({ seller }: { seller: StoreVendor }) => {
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 px-6 py-4">
         <Text size="small" leading="compact" weight="plus">
-          TaxID
+          Partita IVA
         </Text>
         <Text size="small" leading="compact">
           {seller.tax_id || "-"}

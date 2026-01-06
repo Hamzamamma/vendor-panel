@@ -12,11 +12,11 @@ import { isFetchError } from "../../lib/is-fetch-error"
 import { useState } from "react"
 
 const RegisterSchema = z.object({
-  name: z.string().min(2, { message: "Name should be a string" }),
-  email: z.string().email({ message: "Invalid email" }),
-  password: z.string().min(8, { message: "Password should have at least 8 characters" }),
+  name: z.string().min(2, { message: "Il nome deve avere almeno 2 caratteri" }),
+  email: z.string().email({ message: "Email non valida" }),
+  password: z.string().min(8, { message: "La password deve avere almeno 8 caratteri" }),
   confirmPassword: z.string().min(8, {
-    message: "Confirm Password should have at least 8 characters",
+    message: "La conferma password deve avere almeno 8 caratteri",
   }),
 })
 
@@ -41,11 +41,11 @@ export const Register = () => {
       if (password !== confirmPassword) {
         form.setError("password", {
           type: "manual",
-          message: "Password and Confirm Password don't match",
+          message: "Le password non corrispondono",
         })
         form.setError("confirmPassword", {
           type: "manual",
-          message: "Password and Confirm Password don't match",
+          message: "Le password non corrispondono",
         })
 
         return null
@@ -95,17 +95,17 @@ export const Register = () => {
     return (
       <div className="bg-ui-bg-subtle flex min-h-dvh w-dvw items-center justify-center">
         <div className="mb-4 flex flex-col items-center">
-          <Heading>Thank You for registering!</Heading>
+          <Heading>Grazie per la registrazione!</Heading>
           <Text
             size="small"
             className="text-ui-fg-subtle text-center mt-2 max-w-[320px]"
           >
-            You may need to wait for admin authorization before logging in. A
-            confirmation email will be sent to you shortly.
+            Potrebbe essere necessario attendere l'autorizzazione dell'amministratore prima di accedere.
+            Riceverai una email di conferma a breve.
           </Text>
 
           <Link to="/login">
-            <Button className="mt-8">Back to login page</Button>
+            <Button className="mt-8">Torna al login</Button>
           </Link>
         </div>
       </div>
@@ -138,7 +138,7 @@ export const Register = () => {
                           <Input
                             {...field}
                             className="bg-ui-bg-field-component mb-2"
-                            placeholder="Company name"
+                            placeholder="Nome azienda"
                           />
                         </Form.Control>
                       </Form.Item>
@@ -193,7 +193,7 @@ export const Register = () => {
                             type="password"
                             {...field}
                             className="bg-ui-bg-field-component"
-                            placeholder="Confirm Password"
+                            placeholder="Conferma password"
                           />
                         </Form.Control>
                       </Form.Item>
@@ -218,7 +218,7 @@ export const Register = () => {
                 </Alert>
               )}
               <Button className="w-full" type="submit" isLoading={isPending}>
-                Sign up
+                Registrati
               </Button>
             </form>
           </Form>

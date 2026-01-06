@@ -16,7 +16,7 @@ export const CollectionEdit = () => {
   return (
     <RouteDrawer>
       <RouteDrawer.Header>
-        <Heading>Edit Product Collection Request</Heading>
+        <Heading>Modifica Richiesta Collezione</Heading>
       </RouteDrawer.Header>
       {ready && (
         <EditCollectionForm collection={request.data} requestId={id!} />

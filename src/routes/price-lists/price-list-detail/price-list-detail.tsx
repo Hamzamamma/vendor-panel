@@ -27,22 +27,24 @@ export const PriceListDetails = () => {
   }
 
   return (
-    <TwoColumnPage
-      widgets={{
-        after: getWidgets("price_list.details.after"),
-        before: getWidgets("price_list.details.before"),
-        sideAfter: getWidgets("price_list.details.side.after"),
-        sideBefore: getWidgets("price_list.details.side.before"),
-      }}
-      data={price_list}
-    >
-      <TwoColumnPage.Main>
-        <PriceListGeneralSection priceList={price_list} />
-        <PriceListProductSection priceList={price_list} />
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        <PriceListConfigurationSection priceList={price_list} />
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        widgets={{
+          after: getWidgets("price_list.details.after"),
+          before: getWidgets("price_list.details.before"),
+          sideAfter: getWidgets("price_list.details.side.after"),
+          sideBefore: getWidgets("price_list.details.side.before"),
+        }}
+        data={price_list}
+      >
+        <TwoColumnPage.Main>
+          <PriceListGeneralSection priceList={price_list} />
+          <PriceListProductSection priceList={price_list} />
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          <PriceListConfigurationSection priceList={price_list} />
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

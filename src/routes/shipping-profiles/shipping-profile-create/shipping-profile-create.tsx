@@ -3,7 +3,7 @@ import { CreateShippingProfileForm } from "./components/create-shipping-profile-
 
 export function ShippingProfileCreate() {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreateShippingProfileForm />
     </RouteFocusModal>
   )

@@ -55,7 +55,9 @@
     "unsavedChangesDescription": "You have unsaved changes that will be lost if you exit this form.",
     "includesTaxTooltip": "Prices in this column are tax inclusive.",
     "excludesTaxTooltip": "Prices in this column are tax exclusive.",
-    "noMoreData": "No more data"
+    "noMoreData": "No more data",
+    "loading": "Loading...",
+    "retry": "Retry"
   },
   "json": {
     "header": "JSON",
@@ -152,6 +154,7 @@
       "openResult": "Open result",
       "showMore": "Show more",
       "placeholder": "Jump to or find anything...",
+      "topbarPlaceholder": "Search or ask anything...",
       "noResultsTitle": "No results found",
       "noResultsMessage": "We couldn't find anything that matched your search.",
       "emptySearchTitle": "Type to search",
@@ -2086,11 +2089,22 @@
           "title": "Promotion Value",
           "description": "The percentage to discount off the amount. eg. 8%"
         }
+      },
+      "templates": {
+        "percentage_off_product": {
+          "title": "Percentage off product",
+          "description": "Discounts a percentage off selected products"
+        }
       }
     },
     "deleteWarning": "You are about to delete the promotion {{code}}. This action cannot be undone.",
     "createPromotionTitle": "Create Promotion",
     "type": "Promotion type",
+    "tabs": {
+      "template": "Type",
+      "details": "Details",
+      "campaign": "Campaign"
+    },
     "conditions": {
       "add": "Add condition",
       "list": {
@@ -2346,6 +2360,103 @@
     "deleteUserWarning": "You are about to delete the user {{name}}. This action cannot be undone.",
     "deleteUserSuccess": "User {{name}} deleted successfully",
     "invite": "Invite"
+  },
+  "onlineStore": {
+    "domain": "Online Store",
+    "description": "View and manage your online store",
+    "storeUrl": "Store URL",
+    "viewStore": "View Store",
+    "noStoreUrl": "No store URL available. Please configure your store handle in settings.",
+    "storeStatus": "Store Status",
+    "unnamedStore": "Unnamed Store",
+    "quickActions": "Quick Actions",
+    "openInNewTab": "Open in New Tab",
+    "customizeStore": "Customize Store",
+    "storeInfo": "Store Information",
+    "storeDetails": "Store Details",
+    "visitStore": "Visit Store",
+    "copyUrl": "Copy URL",
+    "urlCopied": "URL copied to clipboard",
+    "status": {
+      "active": "Active",
+      "suspended": "Suspended",
+      "inactive": "Inactive"
+    }
+  },
+  "googleYouTube": {
+    "domain": "Google & YouTube",
+    "description": "Reach billions of buyers on Search, Maps, YouTube and elsewhere",
+    "title": "Start using Google & YouTube",
+    "connectAccount": "Connect Google Account",
+    "disconnectAccount": "Disconnect Account",
+    "connected": "Connected",
+    "notConnected": "Not Connected",
+    "pending": "Pending",
+    "configureStore": "Configure your online store",
+    "configureDescription": "The Google & YouTube app allows you to reach billions of buyers on Search, Maps, YouTube and elsewhere. Let's get started.",
+    "activitiesCompleted": "{{completed}} of {{total}} activities completed",
+    "checklist": {
+      "googleAccount": "Your Google Account",
+      "merchantCenter": "Connect your Google Merchant Center account",
+      "storeRequirements": "Check your online store requirements",
+      "storeRequirementsDescription": "Google will verify these essential elements to ensure a high level of reliability and security for customers",
+      "paymentMethod": "Add a valid payment method",
+      "createStore": "Create an online store",
+      "removePassword": "Remove your online store password",
+      "refundPolicy": "Add refund policies and terms of service",
+      "refundPolicyDescription": "Add refund policies and terms of service to the footer navigation menu"
+    },
+    "conversionTracking": {
+      "title": "Do you only want to configure Google Ads conversion tracking?",
+      "description": "You can configure Google Ads conversion tracking without connecting a Merchant Center account. Learn more about Google Ads conversion tracking.",
+      "start": "Start"
+    },
+    "merchantCenter": {
+      "title": "Google Merchant Center",
+      "status": "Status",
+      "accountId": "Account ID",
+      "syncProducts": "Sync Products",
+      "lastSync": "Last Sync",
+      "productsSynced": "Products Synced"
+    },
+    "conversions": {
+      "title": "Google Ads Conversions",
+      "total": "Total Conversions",
+      "today": "Today",
+      "thisWeek": "This Week",
+      "thisMonth": "This Month"
+    },
+    "errors": {
+      "connectionFailed": "Connection failed",
+      "syncFailed": "Sync failed"
+    }
+  },
+  "tiktok": {
+    "domain": "TikTok",
+    "description": "Connect your TikTok account to sell directly on the platform",
+    "comingSoon": "Coming soon"
+  },
+  "facebook": {
+    "domain": "Facebook",
+    "description": "Connect your Facebook account to sell directly on the platform",
+    "comingSoon": "Coming soon"
+  },
+  "instagram": {
+    "domain": "Instagram",
+    "description": "Connect your Instagram account to sell directly on the platform",
+    "comingSoon": "Coming soon"
+  },
+  "googleAnalytics": {
+    "domain": "Google Analytics",
+    "description": "Connect your Google Analytics account to monitor your store's performance",
+    "comingSoon": "Coming soon",
+    "seeAdvancedAnalytics": "See page views and other advanced analytics",
+    "connectedTo": "Connected to",
+    "notConnected": "Not connected",
+    "disconnect": "Disconnect",
+    "connectionIssue": "Connection issue",
+    "missingAccess": "Missing access. Try reconnecting with Google Analytics to fix the issue. Make sure to give consent for accessing your account and data during connection process.",
+    "connectAccount": "Connect account"
   },
   "store": {
     "domain": "Store",

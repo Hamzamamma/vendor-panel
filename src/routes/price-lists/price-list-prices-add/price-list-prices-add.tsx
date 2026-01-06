@@ -18,7 +18,7 @@ export const PriceListProductsAdd = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {ready && (
         <PriceListPricesAddForm
           priceList={price_list}

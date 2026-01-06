@@ -55,7 +55,9 @@
     "unsavedChangesDescription": "Hai modifiche non salvate che andranno perse se esci da questo modulo.",
     "includesTaxTooltip": "I prezzi in questa colonna sono comprensivi di tasse.",
     "excludesTaxTooltip": "I prezzi in questa colonna sono esclusi di tasse.",
-    "noMoreData": "Nessun altro dato"
+    "noMoreData": "Nessun altro dato",
+    "loading": "Caricamento...",
+    "retry": "Riprova"
   },
   "json": {
     "header": "JSON",
@@ -152,6 +154,7 @@
       "openResult": "Apri risultato",
       "showMore": "Mostra di più",
       "placeholder": "Salta a o trova qualsiasi cosa...",
+      "topbarPlaceholder": "Cerca o chiedi qualsiasi cosa...",
       "noResultsTitle": "Nessun risultato trovato",
       "noResultsMessage": "Non siamo riusciti a trovare nulla che corrispondesse alla tua ricerca.",
       "emptySearchTitle": "Digita per cercare",
@@ -806,6 +809,16 @@
         "noAvaliableQuantity": "La posizione di stock non ha quantità disponibile.",
         "quantityOutOfRange": "La quantità minima è 1 e la quantità massima è {{max}}"
       }
+    },
+    "stock": {
+      "title": "Aggiorna livelli di inventario",
+      "description": "Aggiorna i livelli di inventario in stock per gli articoli di inventario selezionati.",
+      "action": "Modifica livelli di stock",
+      "placeholder": "Non abilitato",
+      "disablePrompt_one": "Stai per disabilitare {{count}} livello di posizione. Questa azione non può essere annullata.",
+      "disablePrompt_other": "Stai per disabilitare {{count}} livelli di posizione. Questa azione non può essere annullata.",
+      "disabledToggleTooltip": "Impossibile disabilitare: cancella la quantità in arrivo e/o riservata prima di disabilitare.",
+      "successToast": "Livelli di inventario aggiornati con successo."
     },
     "toast": {
       "updateLocations": "Posizioni aggiornate con successo.",
@@ -1914,11 +1927,22 @@
           "title": "Valore Promozionale",
           "description": "La percentuale da scontare sull'importo. es. 8%"
         }
+      },
+      "templates": {
+        "percentage_off_product": {
+          "title": "Percentuale sconto prodotto",
+          "description": "Applica uno sconto percentuale sui prodotti selezionati"
+        }
       }
     },
     "deleteWarning": "Stai per eliminare la promozione {{code}}. Questa azione non può essere annullata.",
     "createPromotionTitle": "Crea Promozione",
     "type": "Tipo di Promozione",
+    "tabs": {
+      "template": "Tipo",
+      "details": "Dettagli",
+      "campaign": "Campagna"
+    },
     "conditions": {
       "add": "Aggiungi condizione",
       "list": {
@@ -2163,6 +2187,103 @@
     },
     "deleteUserWarning": "Stai per eliminare l'utente {{name}}. Questa azione non può essere annullata.",
     "invite": "Invita"
+  },
+  "onlineStore": {
+    "domain": "Negozio online",
+    "description": "Visualizza e gestisci il tuo negozio online",
+    "storeUrl": "URL del negozio",
+    "viewStore": "Visualizza negozio",
+    "noStoreUrl": "Nessun URL del negozio disponibile. Configura l'handle del negozio nelle impostazioni.",
+    "storeStatus": "Stato del negozio",
+    "unnamedStore": "Negozio senza nome",
+    "quickActions": "Azioni rapide",
+    "openInNewTab": "Apri in nuova scheda",
+    "customizeStore": "Personalizza negozio",
+    "storeInfo": "Informazioni negozio",
+    "storeDetails": "Dettagli negozio",
+    "visitStore": "Visita negozio",
+    "copyUrl": "Copia URL",
+    "urlCopied": "URL copiato negli appunti",
+    "status": {
+      "active": "Attivo",
+      "suspended": "Sospeso",
+      "inactive": "Inattivo"
+    }
+  },
+  "googleYouTube": {
+    "domain": "Google & YouTube",
+    "description": "Raggiungi miliardi di acquirenti su Ricerca, Maps, YouTube e altrove",
+    "title": "Iniziare a utilizzare Google & YouTube",
+    "connectAccount": "Collega account Google",
+    "disconnectAccount": "Disconnetti account",
+    "connected": "Connesso",
+    "notConnected": "Non connesso",
+    "pending": "In attesa",
+    "configureStore": "Configura il tuo negozio online",
+    "configureDescription": "L'app Google & YouTube ti consente di raggiungere i miliardi di acquirenti su Ricerca, su Maps, YouTube e altrove. Iniziamo.",
+    "activitiesCompleted": "{{completed}} di {{total}} attività completate",
+    "checklist": {
+      "googleAccount": "Il tuo Account Google",
+      "merchantCenter": "Collega il tuo account Google Merchant Center",
+      "storeRequirements": "Controlla i requisiti del tuo negozio online",
+      "storeRequirementsDescription": "Google verificherà questi elementi essenziali per garantire un elevato livello di attendibilità e sicurezza ai clienti",
+      "paymentMethod": "Aggiungi un metodo di pagamento valido",
+      "createStore": "Crea un negozio online",
+      "removePassword": "Rimuovi la password del tuo negozio online",
+      "refundPolicy": "Aggiungi le norme sui rimborsi e i termini di servizio",
+      "refundPolicyDescription": "Aggiungi le norme sui rimborsi e i termini di servizio al menu di navigazione a piè di pagina"
+    },
+    "conversionTracking": {
+      "title": "Vuoi soltanto configurare la misurazione delle conversioni di Google Ads?",
+      "description": "Puoi configurare la misurazione delle conversioni di Google Ads senza collegare un account Merchant Center. Scopri di più sulla misurazione delle conversioni di Google Ads.",
+      "start": "Inizia"
+    },
+    "merchantCenter": {
+      "title": "Google Merchant Center",
+      "status": "Stato",
+      "accountId": "ID Account",
+      "syncProducts": "Sincronizza prodotti",
+      "lastSync": "Ultima sincronizzazione",
+      "productsSynced": "Prodotti sincronizzati"
+    },
+    "conversions": {
+      "title": "Conversioni Google Ads",
+      "total": "Totale conversioni",
+      "today": "Oggi",
+      "thisWeek": "Questa settimana",
+      "thisMonth": "Questo mese"
+    },
+    "errors": {
+      "connectionFailed": "Connessione fallita",
+      "syncFailed": "Sincronizzazione fallita"
+    }
+  },
+  "tiktok": {
+    "domain": "TikTok",
+    "description": "Collega il tuo account TikTok per vendere direttamente sulla piattaforma",
+    "comingSoon": "Funzionalità in arrivo"
+  },
+  "facebook": {
+    "domain": "Facebook",
+    "description": "Collega il tuo account Facebook per vendere direttamente sulla piattaforma",
+    "comingSoon": "Funzionalità in arrivo"
+  },
+  "instagram": {
+    "domain": "Instagram",
+    "description": "Collega il tuo account Instagram per vendere direttamente sulla piattaforma",
+    "comingSoon": "Funzionalità in arrivo"
+  },
+  "googleAnalytics": {
+    "domain": "Google Analytics",
+    "description": "Collega il tuo account Google Analytics per monitorare le prestazioni del tuo negozio",
+    "comingSoon": "Funzionalità in arrivo",
+    "seeAdvancedAnalytics": "Visualizza visualizzazioni di pagina e altre analisi avanzate",
+    "connectedTo": "Connesso a",
+    "notConnected": "Non connesso",
+    "disconnect": "Disconnetti",
+    "connectionIssue": "Problema di connessione",
+    "missingAccess": "Accesso mancante. Prova a riconnettere con Google Analytics per risolvere il problema. Assicurati di dare il consenso per accedere al tuo account e ai dati durante il processo di connessione.",
+    "connectAccount": "Collega account"
   },
   "store": {
     "domain": "Negozio",
@@ -2460,7 +2581,27 @@
   "login": {
     "forgotPassword": "Hai dimenticato la password? - <0>Reimposta</0>",
     "title": "Benvenuto in Medusa",
-    "hint": "Accedi per accedere all'area account"
+    "hint": "Accedi per accedere all'area account",
+    "notSellerYet": "Non sei ancora un venditore? - <0>Crea un account</0>"
+  },
+  "dashboard": {
+    "last30Days": "Ultimi 30 giorni",
+    "profit": "Profitto",
+    "orders": "Ordini",
+    "averageShopOrderValue": "Valore medio ordine",
+    "topProducts": {
+      "title": "Prodotti più venduti",
+      "noData": "Nessun dato disponibile"
+    },
+    "salesByCountry": {
+      "title": "Vendite per paese",
+      "noData": "Nessun dato disponibile"
+    },
+    "paymentMethod": {
+      "title": "Metodo di pagamento",
+      "noData": "Nessun dato disponibile"
+    },
+    "fullReport": "Report completo"
   },
   "invite": {
     "title": "Benvenuto in Medusa",

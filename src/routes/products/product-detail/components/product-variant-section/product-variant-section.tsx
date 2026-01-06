@@ -53,6 +53,7 @@ export const ProductVariantSection = ({
         pageSize={PAGE_SIZE}
         heading={t("products.variants.header")}
         rowHref={(row) => `variants/${row.id}`}
+        layout="fill"
         emptyState={{
           empty: {
             heading: t("products.variants.empty.heading"),

@@ -3,7 +3,7 @@ import { InviteUserForm } from "./components/invite-user-form/invite-user-form"
 
 export const UserInvite = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <InviteUserForm />
     </RouteFocusModal>
   )

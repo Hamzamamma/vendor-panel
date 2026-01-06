@@ -16,7 +16,7 @@ export const ProductCreate = () => {
     !!store && !isStorePending && !!sales_channels && !isSalesChannelPending
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <RouteFocusModal.Title asChild>
         <span className="sr-only">{t("products.create.title")}</span>
       </RouteFocusModal.Title>

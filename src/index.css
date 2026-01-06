@@ -30,6 +30,11 @@
   :root {
     @apply bg-ui-bg-subtle text-ui-fg-base antialiased;
     text-rendering: optimizeLegibility;
+    font-family: "Inter", sans-serif !important;
+  }
+
+  body, *, h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select {
+    font-family: "Inter", sans-serif !important;
   }
 }
 
@@ -39,6 +44,7 @@
     background-size: 40px 40px;
     background: repeat;
   }
+
 }
 
 .worfklow-grid {

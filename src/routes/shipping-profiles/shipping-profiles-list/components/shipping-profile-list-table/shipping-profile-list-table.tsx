@@ -41,8 +41,8 @@ export const ShippingProfileListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
           <Heading>{t("shippingProfile.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
@@ -55,30 +55,32 @@ export const ShippingProfileListTable = () => {
           </Button>
         </div>
       </div>
-      <_DataTable
-        table={table}
-        pageSize={PAGE_SIZE}
-        count={count}
-        columns={columns}
-        filters={filters}
-        orderBy={[
-          { key: "name", label: t("fields.name") },
-          { key: "type", label: t("fields.type") },
-          {
-            key: "created_at",
-            label: t("fields.createdAt"),
-          },
-          {
-            key: "updated_at",
-            label: t("fields.updatedAt"),
-          },
-        ]}
-        isLoading={isLoading}
-        navigateTo={(row) => row.id}
-        queryObject={raw}
-        search
-        pagination
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          pageSize={PAGE_SIZE}
+          count={count}
+          columns={columns}
+          filters={filters}
+          orderBy={[
+            { key: "name", label: t("fields.name") },
+            { key: "type", label: t("fields.type") },
+            {
+              key: "created_at",
+              label: t("fields.createdAt"),
+            },
+            {
+              key: "updated_at",
+              label: t("fields.updatedAt"),
+            },
+          ]}
+          isLoading={isLoading}
+          navigateTo={(row) => row.id}
+          queryObject={raw}
+          search
+          pagination
+        />
+      </Container>
+    </div>
   )
 }

@@ -6,7 +6,7 @@ export const CustomerAddCustomerGroups = () => {
   const { id } = useParams()
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <AddCustomerGroupsForm customerId={id!} />
     </RouteFocusModal>
   )

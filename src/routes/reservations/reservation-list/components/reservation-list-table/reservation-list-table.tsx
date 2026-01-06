@@ -40,10 +40,10 @@ export const ReservationListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
-          <Heading>{t("reservations.domain")}</Heading>
+          <Heading className="text-4xl font-semibold">{t("reservations.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
             {t("reservations.subtitle")}
           </Text>
@@ -52,17 +52,19 @@ export const ReservationListTable = () => {
           <Link to="create">{t("actions.create")}</Link>
         </Button>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        pageSize={PAGE_SIZE}
-        count={count}
-        isLoading={isPending}
-        filters={filters}
-        pagination
-        navigateTo={(row) => row.id}
-        search={false}
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          pageSize={PAGE_SIZE}
+          count={count}
+          isLoading={isPending}
+          filters={filters}
+          pagination
+          navigateTo={(row) => row.id}
+          search={false}
+        />
+      </Container>
+    </div>
   )
 }

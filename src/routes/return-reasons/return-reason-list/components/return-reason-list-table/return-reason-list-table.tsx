@@ -45,8 +45,8 @@ export const ReturnReasonListTable = () => {
   }
 
   return (
-    <Container className="divide-y px-0 py-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
           <Heading>{t("returnReasons.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
@@ -57,18 +57,20 @@ export const ReturnReasonListTable = () => {
           <Link to="create">{t("actions.create")}</Link>
         </Button>
       </div>
-      <_DataTable
-        table={table}
-        queryObject={raw}
-        count={count}
-        isLoading={isPending}
-        columns={columns}
-        pageSize={PAGE_SIZE}
-        noHeader={true}
-        pagination
-        search
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          queryObject={raw}
+          count={count}
+          isLoading={isPending}
+          columns={columns}
+          pageSize={PAGE_SIZE}
+          noHeader={true}
+          pagination
+          search
+        />
+      </Container>
+    </div>
   )
 }
 

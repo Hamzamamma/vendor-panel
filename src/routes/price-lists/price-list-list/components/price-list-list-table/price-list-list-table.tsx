@@ -41,10 +41,10 @@ export const PriceListListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
         <div>
-          <Heading>{t("priceLists.domain")}</Heading>
+          <Heading className="text-4xl font-semibold">{t("priceLists.domain")}</Heading>
           <Text className="text-ui-fg-subtle" size="small">
             {t("priceLists.subtitle")}
           </Text>
@@ -53,30 +53,32 @@ export const PriceListListTable = () => {
           <Link to="create">{t("actions.create")}</Link>
         </Button>
       </div>
-      <_DataTable
-        table={table}
-        columns={columns}
-        count={count}
-        filters={filters}
-        orderBy={[
-          { key: "title", label: t("fields.title") },
-          { key: "status", label: t("fields.status") },
-          {
-            key: "created_at",
-            label: t("fields.createdAt"),
-          },
-          {
-            key: "updated_at",
-            label: t("fields.updatedAt"),
-          },
-        ]}
-        queryObject={raw}
-        pageSize={PAGE_SIZE}
-        navigateTo={(row) => row.original.id}
-        isLoading={isLoading}
-        pagination
-        search
-      />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          count={count}
+          filters={filters}
+          orderBy={[
+            { key: "title", label: t("fields.title") },
+            { key: "status", label: t("fields.status") },
+            {
+              key: "created_at",
+              label: t("fields.createdAt"),
+            },
+            {
+              key: "updated_at",
+              label: t("fields.updatedAt"),
+            },
+          ]}
+          queryObject={raw}
+          pageSize={PAGE_SIZE}
+          navigateTo={(row) => row.original.id}
+          isLoading={isLoading}
+          pagination
+          search
+        />
+      </Container>
+    </div>
   )
 }

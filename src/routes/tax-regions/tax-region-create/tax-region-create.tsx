@@ -3,7 +3,7 @@ import { TaxRegionCreateForm } from "./components/tax-region-create-form"
 
 export const TaxRegionCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <TaxRegionCreateForm />
     </RouteFocusModal>
   )

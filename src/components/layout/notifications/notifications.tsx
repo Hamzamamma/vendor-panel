@@ -67,8 +67,9 @@ export const Notifications = () => {
         <IconButton
           variant="transparent"
           className="text-ui-fg-muted hover:text-ui-fg-subtle"
+          size="base"
         >
-          {hasUnread ? <BellAlertDone /> : <BellAlert />}
+          {hasUnread ? <BellAlertDone className="w-5 h-5" /> : <BellAlert className="w-5 h-5" />}
         </IconButton>
       </Drawer.Trigger>
       <Drawer.Content>

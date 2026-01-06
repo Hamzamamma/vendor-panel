@@ -33,7 +33,7 @@ export const PriceListPricesEdit = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <RouteFocusModal.Title asChild>
         <span className="sr-only">Edit Prices for {price_list?.title}</span>
       </RouteFocusModal.Title>

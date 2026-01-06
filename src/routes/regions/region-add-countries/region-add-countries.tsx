@@ -20,7 +20,7 @@ export const RegionAddCountries = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {!isLoading && region && <AddCountriesForm region={region} />}
     </RouteFocusModal>
   )

@@ -3,7 +3,7 @@ import { CreateCollectionForm } from "./components/create-collection-form"
 
 export const CollectionCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreateCollectionForm />
     </RouteFocusModal>
   )

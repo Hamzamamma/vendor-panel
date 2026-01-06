@@ -47,35 +47,37 @@ export const CustomerGroupListTable = () => {
         after: getWidgets("customer_group.list.after"),
       }}
     >
-      <Container className="overflow-hidden p-0">
-        <DataTable
-          data={filteredList}
-          columns={columns}
-          filters={filters}
-          heading={t("customerGroups.domain")}
-          subHeading="Organize customers into groups. Groups can have different promotions and prices."
-          rowCount={count}
-          getRowId={(row) => row.customer_group_id}
-          rowHref={(row: any) => `/customer-groups/${row.original.customer_group_id}`
-          }
-          action={{
-            label: t("actions.create"),
-            to: "/customer-groups/create",
-          }}
-          emptyState={{
-            empty: {
-              heading: t("customerGroups.list.empty.heading"),
-              description: t("customerGroups.list.empty.description"),
-            },
-            filtered: {
-              heading: t("customerGroups.list.filtered.heading"),
-              description: t("customerGroups.list.filtered.description"),
-            },
-          }}
-          pageSize={PAGE_SIZE}
-          isLoading={isPending}
-        />
-      </Container>
+      <div className="mx-auto w-full max-w-[850px]">
+        <Container className="overflow-hidden p-0 w-full">
+          <DataTable
+            data={filteredList}
+            columns={columns}
+            filters={filters}
+            heading={t("customerGroups.domain")}
+            subHeading="Organize customers into groups. Groups can have different promotions and prices."
+            rowCount={count}
+            getRowId={(row) => row.customer_group_id}
+            rowHref={(row: any) => `/customer-groups/${row.original.customer_group_id}`
+            }
+            action={{
+              label: t("actions.create"),
+              to: "/customer-groups/create",
+            }}
+            emptyState={{
+              empty: {
+                heading: t("customerGroups.list.empty.heading"),
+                description: t("customerGroups.list.empty.description"),
+              },
+              filtered: {
+                heading: t("customerGroups.list.filtered.heading"),
+                description: t("customerGroups.list.filtered.description"),
+              },
+            }}
+            pageSize={PAGE_SIZE}
+            isLoading={isPending}
+          />
+        </Container>
+      </div>
     </SingleColumnPage>
   )
 }

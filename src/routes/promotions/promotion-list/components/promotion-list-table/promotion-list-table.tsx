@@ -55,39 +55,40 @@ export const PromotionListTable = () => {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
-        <Heading level="h2">{t("promotions.domain")}</Heading>
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 ">
+        <Heading level="h2" className="text-4xl font-semibold">{t("promotions.domain")}</Heading>
 
         <Button size="small" variant="secondary" asChild>
           <Link to="create">{t("actions.create")}</Link>
         </Button>
       </div>
-
-      <_DataTable
-        table={table}
-        columns={columns}
-        count={count}
-        pageSize={PAGE_SIZE}
-        filters={filters}
-        search
-        pagination
-        isLoading={isLoading}
-        queryObject={raw}
-        navigateTo={(row) => `${row.original.id}`}
-        orderBy={[
-          {
-            key: "created_at",
-            label: t("fields.createdAt"),
-          },
-          {
-            key: "updated_at",
-            label: t("fields.updatedAt"),
-          },
-        ]}
-      />
-      <Outlet />
-    </Container>
+      <Container className="p-0 w-full border-0 shadow-none">
+        <_DataTable
+          table={table}
+          columns={columns}
+          count={count}
+          pageSize={PAGE_SIZE}
+          filters={filters}
+          search
+          pagination
+          isLoading={isLoading}
+          queryObject={raw}
+          navigateTo={(row) => `${row.original.id}`}
+          orderBy={[
+            {
+              key: "created_at",
+              label: t("fields.createdAt"),
+            },
+            {
+              key: "updated_at",
+              label: t("fields.updatedAt"),
+            },
+          ]}
+        />
+        <Outlet />
+      </Container>
+    </div>
   )
 }
 

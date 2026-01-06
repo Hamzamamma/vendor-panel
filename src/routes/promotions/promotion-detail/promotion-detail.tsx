@@ -37,36 +37,38 @@ export const PromotionDetail = () => {
   }
 
   return (
-    <TwoColumnPage
-      data={promotion}
-      widgets={{
-        after: getWidgets("promotion.details.after"),
-        before: getWidgets("promotion.details.before"),
-        sideAfter: getWidgets("promotion.details.side.after"),
-        sideBefore: getWidgets("promotion.details.side.before"),
-      }}
-      hasOutlet
-    >
-      <TwoColumnPage.Main>
-        <PromotionGeneralSection promotion={promotion} />
-        <PromotionConditionsSection 
-          rules={rules || []} 
-          ruleType="rules" 
-        />
-        <PromotionConditionsSection
-          rules={targetRules || []}
-          ruleType="target-rules"
-        />
-        {promotion.type === "buyget" && (
-          <PromotionConditionsSection
-            rules={buyRules || []}
-            ruleType="buy-rules"
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        data={promotion}
+        widgets={{
+          after: getWidgets("promotion.details.after"),
+          before: getWidgets("promotion.details.before"),
+          sideAfter: getWidgets("promotion.details.side.after"),
+          sideBefore: getWidgets("promotion.details.side.before"),
+        }}
+        hasOutlet
+      >
+        <TwoColumnPage.Main>
+          <PromotionGeneralSection promotion={promotion} />
+          <PromotionConditionsSection 
+            rules={rules || []} 
+            ruleType="rules" 
           />
-        )}
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        <CampaignSection campaign={promotion.campaign!} />
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+          <PromotionConditionsSection
+            rules={targetRules || []}
+            ruleType="target-rules"
+          />
+          {promotion.type === "buyget" && (
+            <PromotionConditionsSection
+              rules={buyRules || []}
+              ruleType="buy-rules"
+            />
+          )}
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          <CampaignSection campaign={promotion.campaign!} />
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

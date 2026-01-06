@@ -3,7 +3,7 @@ import { CreateCampaignForm } from "./components/create-campaign-form"
 
 export const CampaignCreate = () => {
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <CreateCampaignForm />
     </RouteFocusModal>
   )

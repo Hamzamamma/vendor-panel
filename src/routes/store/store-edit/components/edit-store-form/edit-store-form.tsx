@@ -137,7 +137,7 @@ export const EditStoreForm = ({ seller }: { seller: StoreVendor }) => {
       },
       {
         onSuccess: () => {
-          toast.success("Store updated")
+          toast.success("Negozio aggiornato")
 
           handleSuccess()
         },
@@ -185,7 +185,7 @@ export const EditStoreForm = ({ seller }: { seller: StoreVendor }) => {
               control={form.control}
               render={({ field }) => (
                 <Form.Item>
-                  <Form.Label>Name</Form.Label>
+                  <Form.Label>Nome</Form.Label>
                   <Form.Control>
                     <Input {...field} />
                   </Form.Control>
@@ -211,7 +211,7 @@ export const EditStoreForm = ({ seller }: { seller: StoreVendor }) => {
               control={form.control}
               render={({ field }) => (
                 <Form.Item>
-                  <Form.Label>Phone Number</Form.Label>
+                  <Form.Label>Numero di telefono</Form.Label>
                   <Form.Control>
                     <Input {...field} />
                   </Form.Control>
@@ -224,7 +224,7 @@ export const EditStoreForm = ({ seller }: { seller: StoreVendor }) => {
               control={form.control}
               render={({ field }) => (
                 <Form.Item>
-                  <Form.Label>Description</Form.Label>
+                  <Form.Label>Descrizione</Form.Label>
                   <Form.Control>
                     <Textarea {...field} />
                   </Form.Control>

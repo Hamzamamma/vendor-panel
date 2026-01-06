@@ -431,8 +431,8 @@ export const CreatePromotionForm = () => {
                                   <RadioGroup.ChoiceBox
                                     key={template.id}
                                     value={template.id}
-                                    label={template.title}
-                                    description={template.description}
+                                    label={t(`promotions.form.templates.${template.id}.title`, { defaultValue: template.title })}
+                                    description={t(`promotions.form.templates.${template.id}.description`, { defaultValue: template.description })}
                                   />
                                 );
                               })}

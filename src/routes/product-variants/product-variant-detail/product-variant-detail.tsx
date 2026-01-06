@@ -30,37 +30,39 @@ export const ProductVariantDetail = () => {
     throw error
   }
   return (
-    <TwoColumnPage
-      data={variant}
-      hasOutlet
-      widgets={{
-        after: getWidgets("product_variant.details.after"),
-        before: getWidgets("product_variant.details.before"),
-        sideAfter: getWidgets("product_variant.details.side.after"),
-        sideBefore: getWidgets("product_variant.details.side.before"),
-      }}
-    >
-      <TwoColumnPage.Main>
-        <VariantGeneralSection variant={variant} />
-        {!variant.manage_inventory ? (
-          <InventorySectionPlaceholder />
-        ) : (
-          variant.inventory_items && (
-            <VariantInventorySection
-              inventoryItems={variant.inventory_items.map((i) => {
-                return {
-                  id: i.inventory_item_id,
-                  required_quantity: i.required_quantity,
-                  variant,
-                }
-              })}
-            />
-          )
-        )}
-      </TwoColumnPage.Main>
-      <TwoColumnPage.Sidebar>
-        <VariantPricesSection variant={variant} />
-      </TwoColumnPage.Sidebar>
-    </TwoColumnPage>
+    <div className="mx-auto w-full max-w-[850px]">
+      <TwoColumnPage
+        data={variant}
+        hasOutlet
+        widgets={{
+          after: getWidgets("product_variant.details.after"),
+          before: getWidgets("product_variant.details.before"),
+          sideAfter: getWidgets("product_variant.details.side.after"),
+          sideBefore: getWidgets("product_variant.details.side.before"),
+        }}
+      >
+        <TwoColumnPage.Main>
+          <VariantGeneralSection variant={variant} />
+          {!variant.manage_inventory ? (
+            <InventorySectionPlaceholder />
+          ) : (
+            variant.inventory_items && (
+              <VariantInventorySection
+                inventoryItems={variant.inventory_items.map((i) => {
+                  return {
+                    id: i.inventory_item_id,
+                    required_quantity: i.required_quantity,
+                    variant,
+                  }
+                })}
+              />
+            )
+          )}
+        </TwoColumnPage.Main>
+        <TwoColumnPage.Sidebar>
+          <VariantPricesSection variant={variant} />
+        </TwoColumnPage.Sidebar>
+      </TwoColumnPage>
+    </div>
   )
 }

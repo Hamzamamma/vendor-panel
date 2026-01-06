@@ -58,7 +58,7 @@ export const ProductStock = () => {
           ) : null}
         </AnimatePresence>
       </div>
-      <RouteFocusModal>
+      <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
         <RouteFocusModal.Title asChild>
           <span className="sr-only">{t("products.stock.heading")}</span>
         </RouteFocusModal.Title>

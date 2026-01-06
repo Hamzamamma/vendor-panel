@@ -23,42 +23,43 @@ export const DashboardOnboarding = ({
   }, [])
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
+    <div className="mx-auto w-full max-w-[850px] flex flex-col gap-y-3">
+      <div className="flex items-center justify-between px-6 py-4 bg-ui-bg-subtle rounded-lg">
         <div>
-          <Heading>Welcome to Mercur marketplace</Heading>
+          <Heading>Benvenuto nel marketplace Mercur</Heading>
           <Text className="text-ui-fg-subtle" size="small">
-            Please complete these steps so you can start selling on the
-            marketplace
+            Completa questi passaggi per iniziare a vendere sul marketplace
           </Text>
         </div>
       </div>
-      <div className="px-6 py-4">
-        <OnboardingRow
-          label="Complete the store information"
-          state={store_information}
-          link="/settings/store"
-          buttonLabel="Manage"
-        />
-        {/* <OnboardingRow
-          label='Setup Stripe Connect account'
-          state={stripe_connect}
-          link='/stripe-connect'
-          buttonLabel='Setup'
-        /> */}
-        <OnboardingRow
-          label="Setup Locations & Shipping"
-          state={locations_shipping}
-          link="/settings/locations"
-          buttonLabel="Setup"
-        />
-        <OnboardingRow
-          label="Add products and start selling"
-          state={products}
-          link="/products/create"
-          buttonLabel="Add"
-        />
-      </div>
-    </Container>
+      <Container className="p-0 w-full">
+        <div className="px-6 py-4">
+          <OnboardingRow
+            label="Completa le informazioni del negozio"
+            state={store_information}
+            link="/settings/store"
+            buttonLabel="Gestisci"
+          />
+          {/* <OnboardingRow
+            label='Configura account Stripe Connect'
+            state={stripe_connect}
+            link='/stripe-connect'
+            buttonLabel='Configura'
+          /> */}
+          <OnboardingRow
+            label="Configura Località e Spedizioni"
+            state={locations_shipping}
+            link="/settings/locations"
+            buttonLabel="Configura"
+          />
+          <OnboardingRow
+            label="Aggiungi prodotti e inizia a vendere"
+            state={products}
+            link="/products/create"
+            buttonLabel="Aggiungi"
+          />
+        </div>
+      </Container>
+    </div>
   )
 }

@@ -25,7 +25,7 @@ export function ProductVariantManageInventoryItems() {
   const extendedVariant = variant as ExtendedAdminProductVariant
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {!isLoading && variant && variant.inventory_items && (
         <ManageVariantInventoryItemsForm variant={extendedVariant} />
       )}

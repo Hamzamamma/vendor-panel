@@ -12,7 +12,7 @@ export const AddCampaignPromotions = () => {
   }
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       {campaign && <AddCampaignPromotionsForm campaign={campaign} />}
     </RouteFocusModal>
   )

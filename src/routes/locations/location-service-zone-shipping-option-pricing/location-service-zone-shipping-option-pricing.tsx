@@ -27,7 +27,7 @@ export function LocationServiceZoneShippingOptionPricing() {
   }
 
   return (
-    <RouteFocusModal prev={`/settings/locations/${location_id}`}>
+    <RouteFocusModal prev={`/settings/locations/${location_id}`} contentClassName="!max-w-[850px] !mx-auto">
       {shippingOption && (
         <EditShippingOptionsPricingForm shippingOption={shippingOption} />
       )}

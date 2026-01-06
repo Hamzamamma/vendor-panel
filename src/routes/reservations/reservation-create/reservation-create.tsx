@@ -9,7 +9,7 @@ export const ReservationCreate = () => {
   const inventoryItemId = params.get("item_id")
 
   return (
-    <RouteFocusModal>
+    <RouteFocusModal contentClassName="!max-w-[850px] !mx-auto">
       <ReservationCreateForm inventoryItemId={inventoryItemId ?? undefined} />
     </RouteFocusModal>
   )
