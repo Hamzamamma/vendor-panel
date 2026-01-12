@@ -1,4 +1,4 @@
-import { Button, Heading, Text, Badge, Progress } from "@medusajs/ui"
+import { Button, Heading, Text, Badge } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
 import { useDisconnectGoogleAccount } from "../../../hooks/api/google"
 import { CheckCircle, XCircle, Clock } from "@medusajs/icons"

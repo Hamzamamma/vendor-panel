@@ -1,4 +1,4 @@
-import { Heading, Text, Progress } from "@medusajs/ui"
+import { Heading, Text } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
 import { CheckCircle, MinusCircle } from "@medusajs/icons"
 import { useStoreRequirements } from "../../../hooks/api/google"
@@ -81,7 +81,7 @@ export const OnboardingChecklist = ({ account }: { account: any }) => {
             })}
           </Text>
         </div>
-        <Progress value={(completedCount / totalCount) * 100} />
+        <div className="w-full h-2 bg-ui-bg-base rounded-full overflow-hidden"><div className="h-full bg-ui-fg-interactive rounded-full" style={{ width: `${(completedCount / totalCount) * 100}%` }} /></div>
       </div>
 
       {/* Checklist */}

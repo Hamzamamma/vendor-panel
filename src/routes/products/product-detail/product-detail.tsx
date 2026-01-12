@@ -10,7 +10,7 @@ import { ProductOrganizationSection } from "./components/product-organization-se
 import { ProductVariantSection } from "./components/product-variant-section"
 
 import { useDashboardExtension } from "../../../extensions"
-import { ProductAdditionalAttributesSection } from "./components/product-additional-attribute-section/ProductAdditionalAttributesSection"
+import { ProductAttributeSection } from "./components/product-attribute-section/product-attribute-section"
 
 export const ProductDetail = () => {
   const { id } = useParams()
@@ -35,7 +35,7 @@ export const ProductDetail = () => {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[850px]">
+    <>
       <TwoColumnPage
         widgets={{
           after,
@@ -48,16 +48,15 @@ export const ProductDetail = () => {
         <TwoColumnPage.Main>
           <ProductGeneralSection product={product} />
           <ProductMediaSection product={product} />
+          <ProductVariantSection product={product} />
         </TwoColumnPage.Main>
         <TwoColumnPage.Sidebar>
           {/* <ProductShippingProfileSection product={product} /> */}
           <ProductOrganizationSection product={product} />
-          {/* <ProductAttributeSection product={product} /> */}
-          <ProductAdditionalAttributesSection product={product} />
+          <ProductAttributeSection product={product} />
           <ProductOptionSection product={product} />
         </TwoColumnPage.Sidebar>
       </TwoColumnPage>
-      <ProductVariantSection product={product} />
-    </div>
+    </>
   )
 }
